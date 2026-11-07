@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="real process adapter exchanges structured stdin/stdout without proprietary SDK" time="0.180918" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/adapters.test.ts"/>
+	<testcase name="process adapters require explicit Boolean authorization" time="0.001787" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/adapters.test.ts"/>
+	<testcase name="process stdout is bounded and host secrets are not inherited" time="0.048650" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/adapters.test.ts"/>
+	<testcase name="timeout terminates the full ordinary child process group" time="0.634907" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/adapters.test.ts"/>
+	<testcase name="explicit cancellation kills running process" time="0.033755" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/adapters.test.ts"/>
+	<testcase name="HTTP harness roundtrip and redirect rejection use real local server" time="0.026668" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/adapters.test.ts"/>
+	<testcase name="CLI help/version and bootstrap need only Node, preserve existing config" time="0.445514" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/cli.test.ts"/>
+	<testcase name="CLI errors return structured JSON and nonzero exit status" time="0.071736" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/cli.test.ts"/>
+	<testcase name="CLI native plan/dryrun/sync/archive cannot bypass delivery evidence" time="5.990922" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/cli.test.ts"/>
+	<testcase name="runtime npm dependencies contain no proprietary SDK or native addon build" time="0.000747" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/cli.test.ts"/>
+	<testcase name="contract acceptance_criterion: valid fixture" time="0.037257" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract acceptance_criterion: invalid fixture" time="0.000241" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract agent_request: valid fixture" time="0.017450" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract agent_request: invalid fixture" time="0.000103" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract agent_result: valid fixture" time="0.010635" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract agent_result: invalid fixture" time="0.000088" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract approval_request: valid fixture" time="0.014926" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract approval_request: invalid fixture" time="0.000114" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract correction_request: valid fixture" time="0.011459" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract correction_request: invalid fixture" time="0.000177" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract execution_event: valid fixture" time="0.010745" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract execution_event: invalid fixture" time="0.000142" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract execution_graph: valid fixture" time="0.018812" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract execution_graph: invalid fixture" time="0.000129" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract execution_manifest: valid fixture" time="0.027182" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract execution_manifest: invalid fixture" time="0.000202" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract gate_decision: valid fixture" time="0.007988" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract gate_decision: invalid fixture" time="0.000099" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract learning_candidate: valid fixture" time="0.008559" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract learning_candidate: invalid fixture" time="0.000078" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract merge_result: valid fixture" time="0.008489" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract merge_result: invalid fixture" time="0.000083" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract openspec_change_reference: valid fixture" time="0.007331" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract openspec_change_reference: invalid fixture" time="0.000127" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract parsed_specification: valid fixture" time="0.009450" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract parsed_specification: invalid fixture" time="0.000080" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract requirement: valid fixture" time="0.007320" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract requirement: invalid fixture" time="0.000096" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract verification_result: valid fixture" time="0.006634" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract verification_result: invalid fixture" time="0.000086" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract work_unit: valid fixture" time="0.011735" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="contract work_unit: invalid fixture" time="0.000122" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="unknown contract and unsupported wire version fail closed" time="0.000343" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/contracts.test.ts"/>
+	<testcase name="graph rejects missing" time="0.042842" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="graph rejects cycle" time="0.000416" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="graph rejects reason" time="0.000233" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="graph rejects duplicate" time="0.000757" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="traceability covers real tasks/requirements, independent of textual order" time="0.001437" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="artifact producers generate justified edges; raw missing edges fail" time="0.000550" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="predictable write conflict needs explicit ordering or resource lock" time="0.000520" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="three workers genuinely overlap and consumers wait for all producers" time="0.181128" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="shared resources serialize execution" time="0.088551" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="local correction preserves independent accepted units and structured feedback" time="0.058304" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="loop stops at budget" time="0.010643" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="loop stops at no-progress" time="0.007018" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="timeout blocks environment failure rather than retrying blindly" time="0.018846" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="an adapter ignoring AbortSignal cannot block the scheduler deadline" time="0.013572" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="pause/resume and invalidation preserve independent results and roll back consumers" time="0.180267" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="replan fixes a blocked unit without replaying independent work" time="0.091601" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="replan invalidates all results when spec changes" time="0.046122" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="replan invalidates all results when policy changes" time="0.044463" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="merge journal replays partial integration and refuses external divergence" time="0.001265" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="actual failed command, missing allowlist and JSON schema can reject output" time="0.027408" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="deterministic file comparison, duplicate detection, CI revision and human gate" time="0.000475" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="learning requires validated baseline, signed trial, immutable versions and revocation" time="0.025525" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="signed consumer delivery is idempotent and fake approvals have no effect" time="0.047451" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="SQL lease rejects another controller in the same process" time="0.000933" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="actual SIGKILL recovery preserves the accepted unit and reclaims a dead lease" time="0.958195" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/engine.test.ts"/>
+	<testcase name="Python state cannot be resumed without explicit migration" time="0.003234" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/migration.test.ts"/>
+	<testcase name="legacy dry-run validates source/evidence without changing the store" time="0.056785" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/migration.test.ts"/>
+	<testcase name="real Python checkpoint migrates with backup and resumes without replaying PASSED" time="0.067325" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/migration.test.ts"/>
+	<testcase name="migration blocks tampered legacy history before backup/write" time="0.001444" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/migration.test.ts"/>
+	<testcase name="migration blocks tampered legacy output before backup/write" time="0.001463" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/migration.test.ts"/>
+	<testcase name="migration blocks tampered legacy policy before backup/write" time="0.004475" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/migration.test.ts"/>
+	<testcase name="unknown store version cannot be silently downgraded" time="0.001000" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/migration.test.ts"/>
+	<testcase name="migration interoperates with a stopped Python fcntl lock file" time="0.044532" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/migration.test.ts"/>
+	<testcase name="official CLI reads artifacts, scenarios, task source locations and planning status" time="1.185321" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/openspec.test.ts"/>
+	<testcase name="invalid native specification blocks loading" time="0.392420" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/openspec.test.ts"/>
+	<testcase name="task synchronization preserves native proposal/spec and stable plan fingerprint" time="3.956271" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/openspec.test.ts"/>
+	<testcase name="checked tasks cannot bypass additional archive gates" time="1.166663" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/openspec.test.ts"/>
+	<testcase name="OpenSpec symlinks and path traversal are rejected" time="0.000669" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/openspec.test.ts"/>
+	<testcase name="unsupported OpenSpec CLI version is rejected on every call" time="0.000366" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/openspec.test.ts"/>
+	<testcase name="official MODIFIED, REMOVED and RENAMED operations remain interoperable" time="0.786628" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/openspec.test.ts"/>
+	<testcase name="TipoExame source model and produced plan satisfy original wire contracts" time="0.823554" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/openspec.test.ts"/>
+	<testcase name="HIGH risk fake approval cannot dispatch the worker" time="0.100760" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="signature binds actor, expiry, action and exact reviewed result" time="0.000967" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="authority keys inside project or with public permissions are rejected" time="0.000646" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="Python approval binding cannot authorize the TypeScript runtime" time="0.001862" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="interrupted non-idempotent effect is not called a second time" time="0.002474" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="tampered output blocks recovery" time="0.073066" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="tampered history blocks recovery" time="0.002085" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="tampered oracle blocks recovery" time="0.002025" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="scope/control escape denied: ../escape.txt" time="0.004904" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="scope/control escape denied: /tmp/escape.txt" time="0.004805" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="scope/control escape denied: .lgo/config.yaml" time="0.004607" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="scope/control escape denied: openspec/specs/cap/spec.md" time="0.003454" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="scope/control escape denied: verification/oracle.mjs" time="0.004467" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="scope/control escape denied: src/.env" time="0.003722" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="context omits secrets/binaries and supplies declared readonly contracts" time="0.010128" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="correction receives newly produced code and updated remaining budget" time="0.006295" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="reported budget excess is terminal policy failure" time="0.004436" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="schema blocks remote $ref without fetching it" time="0.000430" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="schema blocks remote $dynamicRef without fetching it" time="0.000179" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="process permission rejects ambiguous YAML 'false'" time="0.004148" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="process permission rejects ambiguous YAML 1" time="0.000527" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="process permission rejects ambiguous YAML []" time="0.000535" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="process permission rejects ambiguous YAML {}" time="0.000444" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="all active nodes are preflighted before invalidation modifies files" time="0.089094" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="operational symlink cannot redirect writes outside project" time="0.000768" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="configured immutable oracle fixture cannot be rewritten by worker" time="0.004495" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<testcase name="operator policy can raise risk before dispatch" time="0.003058" classname="test" file="/workspace/scratch/b73967659d38/lgo-typescript/tests/security.test.ts"/>
+	<!-- tests 111 -->
+	<!-- suites 0 -->
+	<!-- pass 111 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 19094.982741 -->
+</testsuites>

@@ -1,0 +1,272 @@
+{
+  "producer": "LGO Python0.1.0 at GitHub949ce3b",
+  "run": {
+    "created_at": 1794024501.192629,
+    "gates": [],
+    "graph": {
+      "change_id": "legacy-demo",
+      "integration_verifiers": [
+        {
+          "contains": "ok",
+          "kind": "file_contains",
+          "path": "src/fast.txt"
+        },
+        {
+          "contains": "ok",
+          "kind": "file_contains",
+          "path": "src/slow.txt"
+        }
+      ],
+      "schema_version": "1.0",
+      "spec_hash": "e95791019eb0c8482a3fc96ca6682f1852b74a76dabeca8b6930e60e8712058c",
+      "units": [
+        {
+          "acceptance": [
+            "Content is ok"
+          ],
+          "agent": {
+            "adapter": "mock",
+            "attempts": [
+              {
+                "files": {
+                  "src/fast.txt": "ok"
+                }
+              }
+            ]
+          },
+          "budget": {
+            "max_cost": 1,
+            "max_tokens": 1000
+          },
+          "dependencies": [],
+          "file_scope": [
+            "src/fast.txt"
+          ],
+          "id": "fast",
+          "inputs": [],
+          "max_attempts": 3,
+          "objective": "Produce fast",
+          "outputs": [
+            "src/fast.txt"
+          ],
+          "requirement_ids": [
+            "cap::fast"
+          ],
+          "resources": [],
+          "risk": "LOW",
+          "task_id": "fast",
+          "timeout_seconds": 2,
+          "verifiers": [
+            {
+              "contains": "ok",
+              "kind": "file_contains",
+              "path": "src/fast.txt"
+            }
+          ]
+        },
+        {
+          "acceptance": [
+            "Content is ok"
+          ],
+          "agent": {
+            "adapter": "mock",
+            "attempts": [
+              {
+                "files": {
+                  "src/slow.txt": "ok"
+                }
+              }
+            ]
+          },
+          "budget": {
+            "max_cost": 1,
+            "max_tokens": 1000
+          },
+          "dependencies": [
+            {
+              "reason": "Consumes fast",
+              "unit": "fast"
+            }
+          ],
+          "file_scope": [
+            "src/slow.txt"
+          ],
+          "id": "slow",
+          "inputs": [],
+          "max_attempts": 3,
+          "objective": "Produce slow",
+          "outputs": [
+            "src/slow.txt"
+          ],
+          "requirement_ids": [
+            "cap::slow"
+          ],
+          "resources": [],
+          "risk": "LOW",
+          "task_id": "slow",
+          "timeout_seconds": 2,
+          "verifiers": [
+            {
+              "contains": "ok",
+              "kind": "file_contains",
+              "path": "src/slow.txt"
+            }
+          ]
+        }
+      ]
+    },
+    "graph_hash": "17504cdc9446c318c2197d67e0c43bdfd193fcb1e3f3c350ee4d6f235cd63113",
+    "id": "run-003a4618ec4c4aea",
+    "integration": {
+      "passed": false
+    },
+    "nodes": {
+      "fast": {
+        "attempts": 1,
+        "cost": 0,
+        "history": [
+          {
+            "attempt": 1,
+            "verification": {
+              "passed": true,
+              "results": [
+                {
+                  "schema_version": "1.0",
+                  "kind": "file_contains",
+                  "passed": true,
+                  "failure_class": null,
+                  "evidence": {
+                    "path": "src/fast.txt",
+                    "expected_contains": "ok",
+                    "actual_sha256": "2689367b205c16ce32ed4200942b8b8b1e262dfc70d9bc9fbc77c49699a4f1df"
+                  },
+                  "duration_seconds": 0.000102996826171875
+                }
+              ]
+            },
+            "patch_hash": "6fc7862d5c1ab07d27f7ae46bb8953d95872350c2434c3dddb58353dd22d2080",
+            "duration_seconds": 0.0018129348754882812,
+            "usage": {
+              "cost": 0,
+              "tokens": 0
+            }
+          }
+        ],
+        "integrated": true,
+        "state": "PASSED",
+        "tokens": 0,
+        "ready_at": 1794024501.196136,
+        "started_at": 1794024501.196896,
+        "verified": true,
+        "last_evidence": "/tmp/lgo-python-legacy-sh6kaxrn/.lgo/runs/run-003a4618ec4c4aea/evidence/fast/1.json",
+        "merge": {
+          "schema_version": "1.0",
+          "unit": "fast",
+          "passed": true,
+          "status": "COMMITTED",
+          "files": [
+            "src/fast.txt"
+          ],
+          "hashes": {
+            "src/fast.txt": "2689367b205c16ce32ed4200942b8b8b1e262dfc70d9bc9fbc77c49699a4f1df"
+          },
+          "originals": {
+            "src/fast.txt": null
+          }
+        },
+        "finished_at": 1794024501.202017
+      },
+      "slow": {
+        "attempts": 0,
+        "cost": 0,
+        "history": [],
+        "integrated": false,
+        "state": "READY",
+        "tokens": 0,
+        "ready_at": 1794024501.2042162
+      }
+    },
+    "policy_hash": "2559fd9e22544871dfada93bd5fb8f7054564a61b5162966ce3cce262b60e59f",
+    "schema_version": "1.0",
+    "source_fingerprint": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "source_snapshot": {},
+    "state": "PAUSED",
+    "workspace": "/tmp/lgo-python-legacy-sh6kaxrn/.lgo/runs/run-003a4618ec4c4aea/workspace",
+    "updated_at": 1794024501.2049997
+  },
+  "events": [
+    {
+      "seq": 1,
+      "run": "run-003a4618ec4c4aea",
+      "data": "{\"graph_hash\":\"17504cdc9446c318c2197d67e0c43bdfd193fcb1e3f3c350ee4d6f235cd63113\",\"kind\":\"run_created\",\"run_id\":\"run-003a4618ec4c4aea\",\"schema_version\":\"1.0\",\"timestamp\":1794024501.193586}",
+      "prev": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "280613efeb37ae4c9ae2315bdac462844e1961b7f1904032cfd563e0e5b95165"
+    },
+    {
+      "seq": 2,
+      "run": "run-003a4618ec4c4aea",
+      "data": "{\"kind\":\"transition\",\"old\":\"PENDING\",\"ready_at\":1794024501.196136,\"run_id\":\"run-003a4618ec4c4aea\",\"schema_version\":\"1.0\",\"state\":\"READY\",\"timestamp\":1794024501.1968217,\"unit\":\"fast\"}",
+      "prev": "280613efeb37ae4c9ae2315bdac462844e1961b7f1904032cfd563e0e5b95165",
+      "hash": "4337eb46640adfc5a6f8244b9d1b021a7fe8a985d8a7bb437b3a228143b23b3d"
+    },
+    {
+      "seq": 3,
+      "run": "run-003a4618ec4c4aea",
+      "data": "{\"kind\":\"transition\",\"old\":\"READY\",\"run_id\":\"run-003a4618ec4c4aea\",\"schema_version\":\"1.0\",\"started_at\":1794024501.196896,\"state\":\"RUNNING\",\"timestamp\":1794024501.1975067,\"unit\":\"fast\"}",
+      "prev": "4337eb46640adfc5a6f8244b9d1b021a7fe8a985d8a7bb437b3a228143b23b3d",
+      "hash": "7ced87a2977bbee4de02e63fe30b78197afdd9b8b46ed733d35a065aaff1354c"
+    },
+    {
+      "seq": 4,
+      "run": "run-003a4618ec4c4aea",
+      "data": "{\"active_workers\":1,\"kind\":\"scheduled\",\"resources\":[],\"run_id\":\"run-003a4618ec4c4aea\",\"schema_version\":\"1.0\",\"timestamp\":1794024501.1976502,\"unit\":\"fast\"}",
+      "prev": "7ced87a2977bbee4de02e63fe30b78197afdd9b8b46ed733d35a065aaff1354c",
+      "hash": "16709fbb8deff1cf95ff245c345716e3698dfc3cb82b20b8cb98ea8502a41f49"
+    },
+    {
+      "seq": 5,
+      "run": "run-003a4618ec4c4aea",
+      "data": "{\"attempt\":1,\"idempotency_key\":\"run-003a4618ec4c4aea:fast:1\",\"kind\":\"attempt_started\",\"run_id\":\"run-003a4618ec4c4aea\",\"schema_version\":\"1.0\",\"timestamp\":1794024501.1977978,\"unit\":\"fast\"}",
+      "prev": "16709fbb8deff1cf95ff245c345716e3698dfc3cb82b20b8cb98ea8502a41f49",
+      "hash": "66e4ae723b75e4710ca4371d25b18b1fcc1a11c3919f963fd33685ac7cbe6f3c"
+    },
+    {
+      "seq": 6,
+      "run": "run-003a4618ec4c4aea",
+      "data": "{\"kind\":\"transition\",\"old\":\"RUNNING\",\"run_id\":\"run-003a4618ec4c4aea\",\"schema_version\":\"1.0\",\"state\":\"VERIFYING\",\"timestamp\":1794024501.2002869,\"unit\":\"fast\"}",
+      "prev": "66e4ae723b75e4710ca4371d25b18b1fcc1a11c3919f963fd33685ac7cbe6f3c",
+      "hash": "26c177d41342d69b15145bab9ec773f9f744e2f214ef9b01261897200ddc25c2"
+    },
+    {
+      "seq": 7,
+      "run": "run-003a4618ec4c4aea",
+      "data": "{\"finished_at\":1794024501.202017,\"kind\":\"transition\",\"old\":\"VERIFYING\",\"run_id\":\"run-003a4618ec4c4aea\",\"schema_version\":\"1.0\",\"state\":\"PASSED\",\"timestamp\":1794024501.2027142,\"unit\":\"fast\"}",
+      "prev": "26c177d41342d69b15145bab9ec773f9f744e2f214ef9b01261897200ddc25c2",
+      "hash": "99b0d858b4a2fbd6f68ada2dc8af3326b18659412e5a378aa41bdcbe00edc2b4"
+    },
+    {
+      "seq": 8,
+      "run": "run-003a4618ec4c4aea",
+      "data": "{\"kind\":\"merge\",\"result\":{\"files\":[\"src/fast.txt\"],\"hashes\":{\"src/fast.txt\":\"2689367b205c16ce32ed4200942b8b8b1e262dfc70d9bc9fbc77c49699a4f1df\"},\"originals\":{\"src/fast.txt\":null},\"passed\":true,\"schema_version\":\"1.0\",\"status\":\"COMMITTED\",\"unit\":\"fast\"},\"run_id\":\"run-003a4618ec4c4aea\",\"schema_version\":\"1.0\",\"timestamp\":1794024501.2027802,\"unit\":\"fast\"}",
+      "prev": "99b0d858b4a2fbd6f68ada2dc8af3326b18659412e5a378aa41bdcbe00edc2b4",
+      "hash": "51c763889f5889de59b68e8c1fe4dcffcd855882fbfe4f66c4b0ca57f34636d0"
+    },
+    {
+      "seq": 9,
+      "run": "run-003a4618ec4c4aea",
+      "data": "{\"kind\":\"transition\",\"old\":\"PENDING\",\"ready_at\":1794024501.2042162,\"run_id\":\"run-003a4618ec4c4aea\",\"schema_version\":\"1.0\",\"state\":\"READY\",\"timestamp\":1794024501.204931,\"unit\":\"slow\"}",
+      "prev": "51c763889f5889de59b68e8c1fe4dcffcd855882fbfe4f66c4b0ca57f34636d0",
+      "hash": "c8f9f38a29e80b184913fb053ce814b28e6163174ca94025a0acab1be3ab1e48"
+    },
+    {
+      "seq": 10,
+      "run": "run-003a4618ec4c4aea",
+      "data": "{\"kind\":\"run_checkpoint\",\"run_id\":\"run-003a4618ec4c4aea\",\"schema_version\":\"1.0\",\"state\":\"PAUSED\",\"timestamp\":1794024501.2050006}",
+      "prev": "c8f9f38a29e80b184913fb053ce814b28e6163174ca94025a0acab1be3ab1e48",
+      "hash": "cfe5492bec1ae0df972a62ff33ca0e893b0c3343626b8abdf3f286b329979adc"
+    }
+  ],
+  "workspace_files": {
+    "src/fast.txt": "ok"
+  }
+}

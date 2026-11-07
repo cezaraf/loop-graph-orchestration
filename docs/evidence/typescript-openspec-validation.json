@@ -1,0 +1,56 @@
+{
+  "progress": {
+    "change": "migrate-runtime-to-typescript",
+    "accepted_task_ids": [
+      "1.1",
+      "1.2",
+      "1.3",
+      "2.1",
+      "2.2",
+      "2.3",
+      "2.4",
+      "3.1",
+      "3.2",
+      "3.3"
+    ],
+    "updated": [
+      "openspec/changes/migrate-runtime-to-typescript/tasks.md"
+    ]
+  },
+  "validation": {
+    "valid": true,
+    "details": {
+      "items": [
+        {
+          "id": "migrate-runtime-to-typescript",
+          "type": "change",
+          "valid": true,
+          "issues": [],
+          "durationMs": 19
+        }
+      ],
+      "summary": {
+        "totals": {
+          "items": 1,
+          "passed": 1,
+          "failed": 0
+        },
+        "byType": {
+          "change": {
+            "items": 1,
+            "passed": 1,
+            "failed": 0
+          }
+        }
+      },
+      "version": "1.0",
+      "root": {
+        "path": "/workspace/scratch/b73967659d38/lgo-typescript",
+        "source": "nearest"
+      }
+    },
+    "openspec_version": "1.16.1"
+  },
+  "archived": false,
+  "evidence": "docs/typescript-migration.md"
+}

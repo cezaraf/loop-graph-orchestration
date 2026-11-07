@@ -1,28 +1,28 @@
-# Matriz de conclusão e evidências
+# Matriz de aceite — TypeScript0.2
 
-PASS significa que o mecanismo indicado foi executado no ambiente de referência. Não estende a prova a harnesses não testados ou isolamento de produção. Funcionalidades adicionais ainda ausentes estão identificadas no [relatório](report.md). Não houve aprovação humana real ou archive executado.
+PASS indica evidência executada no ambiente de referência. Não estende garantias a harnesses/produtores hostis, plataformas ou infraestrutura não testados. Limitações estão no [relatório da migração](typescript-migration.md). Não houve aprovação humana real ou archive.
 
-| Critério | Estado | Evidência verificável |
+| Critério | Estado | Evidência |
 | --- | --- | --- |
-| CA-01 — consumir OpenSpec real | PASS | `tests/test_openspec.py`; CLI1.16.1 validate/show/status/instructions |
-| CA-02 — tasks e requisitos rastreáveis | PASS | `test_plan_uses_source_traceability_and_not_task_order`; grafo demo contém IDs reais |
-| CA-03 — verificar dependências | PASS | testes de ciclos, referência ausente, artefato sem edge, conflitos e edge derivada |
-| CA-04 — paralelismo real | PASS | `test_real_parallel_dispatch_dependency_and_resource_lock`; eventos e pico3 na demo |
-| CA-05 — verificadores externos por worker | PASS | `VerificationEngine`; Java executado fora do mock; testes de código de saída e schema |
-| CA-06 — correção localizada | PASS | `test_correction_local_preserves_other_units_and_feedback`; backend2, demais1 |
-| CA-07 — preservar resultados válidos | PASS | testes de pause/resume, SIGKILL e correção; hashes das unidades aprovadas |
-| CA-08 — invalidar dependentes | PASS | `test_pause_resume_invalidates_only_transitive_consumers`; rollback e preservação independente |
-| CA-09 — limite de tentativas | PASS | `test_attempt_limit_and_no_progress_differ`; máximo3 e parada por ausência de progresso |
-| CA-10 — gates de risco/autoridade | PASS | testes adversariais de HIGH, chave externa, tokens falsos e políticas; restrito à fronteira declarada |
-| CA-11 — retomar interrupção | PASS | `test_real_process_kill_and_resume_preserves_approved_unit`; não implica recuperação de todas as operações de controle |
-| CA-12 — agente mock | PASS | demo e suíte sem credenciais |
-| CA-13 — núcleo independente de harness proprietário | PASS | dependências apenas jsonschema/PyYAML; testes processo/HTTP e inspeção pyproject |
-| CA-14 — aprendizado proposto e verificável | PASS | demo PROPOSED; teste de trial, promoção de fixture, aplicação futura e revogação |
-| CA-15 — preservar artefatos OpenSpec | PASS | teste de sync idempotente, hash estável, origem/linhas oficiais e rejeição de alterações inesperadas |
-| CA-16 — gates para progresso/sync/archive | PASS | CLI só marca outputs entregues; teste bloqueia archive; preparação sem executar operações oficiais |
-| CA-17 — demo de falha/correção/integração/retomada | PASS | `scripts/demo.py`, relatório JSON, evidências Java e integração final |
-| CA-18 — testes relevantes executados | PASS | 80 testes Python, 8 evals, 5 testes Spring, build Angular; arquivos em `docs/evidence` |
-| CA-19 — instalar e estender | PASS | pyproject/CLI, guia adapters, templates, wheel e smoke de instalação isolada |
-| CA-20 — reprodução por script | PASS | demo executada repetidamente com diretórios novos; comandos completos no README, sem credenciais |
+| CA-01 consumir OpenSpec real | PASS | `openspec.test.ts`: CLI1.16.1 real |
+| CA-02 tasks e requisitos rastreáveis | PASS | `engine.test.ts`: traceability, coverage; demo com IDs oficiais |
+| CA-03 dependências verificadas | PASS | produtores, edges derivadas/justificadas, ciclos e referências ausentes |
+| CA-04 paralelismo real | PASS |3 workers sobrepostos e consumidor aguardando todos |
+| CA-05 verificadores externos | PASS | comandos com exit code, schema e Java executável fora do mock |
+| CA-06 correção localizada | PASS | backend2 tentativas, unidades independentes1 |
+| CA-07 preservar resultados válidos | PASS | pause/resume, SIGKILL e checkpoint Python migrado |
+| CA-08 invalidar consumidores | PASS | rollback CAS e invalidação transitiva; independente preservado |
+| CA-09 limites/no-progress | PASS | parada por máximo3 e ausência de progresso |
+| CA-10 gates de risco/autoridade | PASS | `security.test.ts`; escopo limitado à fronteira de confiança documentada |
+| CA-11 retomar interrupção | PASS | subprocesso real morto, lease reclaim e PASSED preservado |
+| CA-12 mock sem credenciais | PASS | demo, evals e suíte |
+| CA-13 independência de harness | PASS | runtime depende só de Ajv/yaml; processo/HTTP sem SDK proprietário |
+| CA-14 aprendizado verificável | PASS | candidato, baseline/trial, assinatura, versões e revogação |
+| CA-15 preservar OpenSpec | PASS | tarefas localizadas oficialmente, sync idempotente e hash estável |
+| CA-16 progresso/archive com gates | PASS | CLI bloqueia task não entregue e archive sem qualidade/autoridade |
+| CA-17 demo completa do núcleo | PASS | `scripts/demo.mjs` com falha/correção/integração/retomada |
+| CA-18 testes executados | PASS |111 TypeScript,8 evals,5 Spring, build Angular |
+| CA-19 instalação/extensão | PASS | tarball npm isolado sem Python, tipos públicos, guias e templates |
+| CA-20 reprodução por script | PASS | demo executada repetidamente em diretórios novos; instalação npm documentada |
 
-A revisão manual por outro engenheiro em outra máquina ainda não foi realizada. CA-20 comprova procedimento reproduzível executado, não uma certificação externa. A versão0.1 é uma implementação funcional do núcleo; as ausências do relatório impedem tratá-la como a visão inteira de Autonomous Engineering já concluída.
+A revisão independente por outro engenheiro em outra máquina não foi realizada. CA-20 prova procedimento executável repetido, sem certificação externa. A migração0.2 está implementada; as capacidades de produção pendentes da visão maior de Autonomous Engineering não se tornam concluídas pela troca de linguagem.

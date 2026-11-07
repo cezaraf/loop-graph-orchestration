@@ -2,17 +2,17 @@ schema_version: '1.0'
 concurrency: 3
 commands:
   backend:
-    argv: [python3, verification/check.py, backend]
+    argv: [node, verification/check.mjs, backend]
     timeout_seconds: 30
   frontend:
-    argv: [python3, verification/check.py, frontend]
+    argv: [node, verification/check.mjs, frontend]
     timeout_seconds: 30
   contract:
-    argv: [python3, verification/check.py, contract]
+    argv: [node, verification/check.mjs, contract]
     timeout_seconds: 30
   security:
-    argv: [python3, verification/check.py, security]
+    argv: [node, verification/check.mjs, security]
     timeout_seconds: 30
   integration:
-    argv: [python3, verification/check.py, integration]
+    argv: [node, verification/check.mjs, integration]
     timeout_seconds: 30

@@ -7,6 +7,6 @@ retention_days: 30
 protected_paths: [verification/**]
 commands:
   unit-tests:
-    argv: [python3, verification/unit_tests.py]
+    argv: [node, verification/unit-tests.mjs]
     timeout_seconds: 60
     write_scope: []

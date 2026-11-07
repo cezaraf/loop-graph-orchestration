@@ -1,3 +1,5 @@
+> Decisão histórica da versão0.1. A implementação foi substituída pelo [ADR002](002-typescript-runtime.md).
+
 # ADR 001 — Runtime local em Python, composição com OpenSpec
 
 Status: aceito para a implementação de referência. Data: 2026-11-06.

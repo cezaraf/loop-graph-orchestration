@@ -1,6 +1,6 @@
 # Segurança, autoridade e autonomia
 
-A referência tem um limite de confiança claro: código do controlador, políticas, bindings, verificadores e store pertencem ao operador; artefatos de produto e respostas de agentes são dados não confiáveis. O worker mock devolve patches e não recebe shell ou credenciais. Um adapter implementado em Python e carregado no mesmo processo é código confiável do operador, pois Python não contém código hostil.
+A referência tem um limite de confiança claro: código do controlador, políticas, bindings, verificadores e store pertencem ao operador; artefatos de produto e respostas de agentes são dados não confiáveis. O worker mock devolve patches e não recebe shell ou credenciais. Um adapter implementado em TypeScript/Node.js e carregado no mesmo processo é código confiável do operador, pois o runtime do Node não fornece isolamento para código carregado no próprio processo.
 
 ## Risco e blast radius
 
@@ -27,7 +27,7 @@ A classificação deve considerar recursos afetados e reversibilidade. Confianç
 | Corrupção de histórico | SQLite e vínculos de evidência permitem detectar inconsistência relevante | Mesmo usuário do SO pode editar SQLite/arquivos; não é log inviolável ou WORM |
 | Aprendizado contaminado | Candidato exige execução validada, evidência, aplicabilidade e promoção controlada | Não promover heurística local para requisito de produto ou regra global sem avaliação |
 
-Uma política crítica inválida ou ausente deve bloquear. Um ambiente indisponível produz BLOCKED, nunca PASS. Exit code zero do agente não substitui verificações. Erros de política não são corrigidos repetindo o mesmo comando.
+As políticas integradas permanecem ativas; uma configuração crítica inválida ou comando fora da allowlist bloqueia. Um ambiente indisponível produz BLOCKED, nunca PASS. Exit code zero do agente não substitui verificações. Erros de política não são corrigidos repetindo o mesmo comando.
 
 ## Autoridade humana
 
@@ -37,6 +37,6 @@ Não coloque segredo de assinatura em `.lgo/`, variável repassada ao agente ou 
 
 ## Preparação para agentes reais
 
-Execute o harness em usuário/container distinto, filesystem mínimo, rede negada por padrão, sem socket Docker, sem mounts de credenciais e sem acesso ao store. Exponha ferramentas mínimas via broker que valide cada ação. Não herde todo `os.environ`. Restrinja executáveis e argumentos do verifier; `shell=False` remove interpretação de shell, mas não transforma um programa arbitrário em seguro. Um comando de build pode executar scripts do projeto: execute esse build em sandbox confiável para código não confiável.
+Execute o harness em usuário/container distinto, filesystem mínimo, rede negada por padrão, sem socket Docker, sem mounts de credenciais e sem acesso ao store. Exponha ferramentas mínimas via broker que valide cada ação. Não herde todo `process.env`. Restrinja executáveis e argumentos do verifier; `shell:false` remove interpretação de shell, mas não transforma um programa arbitrário em seguro. Um comando de build pode executar scripts do projeto: execute esse build em sandbox confiável para código não confiável.
 
 Essas são condições de adoção, não capacidades de kernel implementadas pelo LGO. Consulte o relatório para o que foi testado na entrega.
