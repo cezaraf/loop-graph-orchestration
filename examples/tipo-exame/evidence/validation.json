@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "measured": true,
+  "commands": [
+    {
+      "command": "mvn clean test",
+      "version": "3.9.11 / Spring Boot3.5.16 / Java17",
+      "exit_code": 0,
+      "tests": 5,
+      "failures": 0,
+      "evidence": "spring-tests.log"
+    },
+    {
+      "command": "mvn -Dtest=TipoExameIntegrationTest#absentReturns404 test",
+      "controlled_fault": "NotFoundPolicy returns200; isolated copy on Spring Boot3.5.7",
+      "exit_code": 1,
+      "tests": 1,
+      "failures": 1,
+      "expected": "HTTP404",
+      "actual": "HTTP200",
+      "evidence": "spring-negative-control.log"
+    },
+    {
+      "command": "npm run build",
+      "exit_code": 0,
+      "versions": "Angular20.3.35 / PrimeNG20.4.0",
+      "evidence": "angular-build.log"
+    },
+    {
+      "command": "npm audit --omit=dev --json",
+      "exit_code": 0,
+      "vulnerabilities": 0,
+      "evidence": "npm-audit-production.json"
+    },
+    {
+      "command": "python3 verification/check.py integration",
+      "exit_code": 0,
+      "evidence": "offline-integration.log"
+    }
+  ],
+  "not_executed": [
+    "Browser E2E",
+    "Deploy",
+    "Authentication/authorization production review"
+  ],
+  "notes": [
+    "Offline verifier is source/Java-policy check, distinct from Spring MockMvc suite",
+    "Negative fault was intentionally introduced and rejected, not a final delivery failure"
+  ]
+}

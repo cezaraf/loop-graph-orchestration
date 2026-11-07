@@ -1,0 +1,27 @@
+{
+  "attempt": 1,
+  "verification": {
+    "passed": true,
+    "results": [
+      {
+        "schema_version": "1.0",
+        "kind": "command",
+        "passed": true,
+        "failure_class": null,
+        "evidence": {
+          "exit_code": 0,
+          "stdout": "security and architecture source checks PASS; unauthenticated loopback demo only\n",
+          "stderr": "",
+          "command": "security"
+        },
+        "duration_seconds": 0.026914358139038086
+      }
+    ]
+  },
+  "patch_hash": "917de0037eb02c26148b3bc4e587cead4231f9449dc405946279e1bf500e70fc",
+  "duration_seconds": 0.4333932399749756,
+  "usage": {
+    "cost": 0,
+    "tokens": 0
+  }
+}

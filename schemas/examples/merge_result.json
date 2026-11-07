@@ -1,0 +1,18 @@
+{
+  "valid": {
+    "schema_version": "1.0",
+    "unit": "example",
+    "passed": false,
+    "status": "COMMITTED",
+    "files": [],
+    "hashes": {}
+  },
+  "invalid": {
+    "schema_version": "99.0",
+    "unit": "example",
+    "passed": false,
+    "status": "COMMITTED",
+    "files": [],
+    "hashes": {}
+  }
+}

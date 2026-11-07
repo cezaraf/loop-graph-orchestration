@@ -1,0 +1,133 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "finding": {
+      "type": "string",
+      "minLength": 1
+    },
+    "root_cause": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kind": {
+      "const": "resource_constraint"
+    },
+    "constraint": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+        },
+        "resource": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "scope",
+        "resource"
+      ],
+      "additionalProperties": false
+    },
+    "target": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "enum": [
+        "Constraint",
+        "Rule",
+        "Skill",
+        "Eval",
+        "Regression",
+        "Template",
+        "Runbook",
+        "Planning"
+      ]
+    },
+    "status": {
+      "enum": [
+        "PROPOSED",
+        "APPROVED",
+        "ACTIVE",
+        "REJECTED",
+        "REVOKED"
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "run_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "corrections": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "run_id",
+        "evidence_digest",
+        "corrections"
+      ],
+      "additionalProperties": false
+    },
+    "applicability": {
+      "type": "string",
+      "minLength": 1
+    },
+    "regressions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "revoked": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "approval_actor": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "finding",
+    "root_cause",
+    "kind",
+    "constraint",
+    "target",
+    "category",
+    "status",
+    "evidence",
+    "applicability",
+    "regressions",
+    "revoked",
+    "version"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lgo.local/contracts/1.0/learning_candidate.schema.json",
+  "title": "learning_candidate"
+}

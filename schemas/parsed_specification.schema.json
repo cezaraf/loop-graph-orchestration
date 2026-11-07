@@ -1,0 +1,190 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema": {
+      "const": "spec-driven"
+    },
+    "openspec_version": {
+      "const": "1.16.1"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "official_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "checked": {
+            "type": "boolean"
+          },
+          "sourcePath": {
+            "type": "string",
+            "minLength": 1
+          },
+          "line": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "checked"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scenarios": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "rawText": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "rawText"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0
+          },
+          "capability": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operation": {
+            "enum": [
+              "ADDED",
+              "MODIFIED",
+              "REMOVED",
+              "RENAMED"
+            ]
+          },
+          "rename": {
+            "type": "object",
+            "properties": {
+              "from": {
+                "type": "string",
+                "minLength": 1
+              },
+              "to": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "from",
+              "to"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "text",
+          "scenarios",
+          "capability",
+          "operation"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{64}$"
+      }
+    },
+    "spec_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "planning_status": {
+      "type": "object"
+    },
+    "proposal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "design": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "schema",
+    "openspec_version",
+    "metadata",
+    "tasks",
+    "requirements",
+    "capabilities",
+    "artifacts",
+    "spec_hash",
+    "planning_status",
+    "proposal",
+    "design"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lgo.local/contracts/1.0/parsed_specification.schema.json",
+  "title": "parsed_specification"
+}

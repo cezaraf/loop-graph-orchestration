@@ -1,0 +1,8 @@
+{
+  "name": "lgo-dev-tools",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pinned official OpenSpec for LGO interoperability checks",
+  "engines": {"node": ">=22.12.0"},
+  "devDependencies": {"@fission-ai/openspec": "1.16.1"}
+}

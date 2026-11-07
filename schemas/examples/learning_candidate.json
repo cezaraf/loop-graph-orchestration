@@ -1,0 +1,48 @@
+{
+  "valid": {
+    "schema_version": "1.0",
+    "id": "example",
+    "finding": "example",
+    "root_cause": "example",
+    "kind": "resource_constraint",
+    "constraint": {
+      "scope": "example",
+      "resource": "example"
+    },
+    "target": "example",
+    "category": "Constraint",
+    "status": "PROPOSED",
+    "evidence": {
+      "run_id": "example",
+      "evidence_digest": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corrections": 1
+    },
+    "applicability": "example",
+    "regressions": [],
+    "revoked": false,
+    "version": 1
+  },
+  "invalid": {
+    "schema_version": "99.0",
+    "id": "example",
+    "finding": "example",
+    "root_cause": "example",
+    "kind": "resource_constraint",
+    "constraint": {
+      "scope": "example",
+      "resource": "example"
+    },
+    "target": "example",
+    "category": "Constraint",
+    "status": "PROPOSED",
+    "evidence": {
+      "run_id": "example",
+      "evidence_digest": "0000000000000000000000000000000000000000000000000000000000000000",
+      "corrections": 1
+    },
+    "applicability": "example",
+    "regressions": [],
+    "revoked": false,
+    "version": 1
+  }
+}

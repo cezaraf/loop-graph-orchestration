@@ -1,0 +1,72 @@
+{
+  "valid": {
+    "schema_version": "1.0",
+    "id": "example",
+    "objective": "example",
+    "task_id": "example",
+    "requirement_ids": [
+      "example"
+    ],
+    "inputs": [],
+    "outputs": [],
+    "dependencies": [],
+    "resources": [],
+    "file_scope": [
+      "example"
+    ],
+    "acceptance": [
+      "example"
+    ],
+    "verifiers": [
+      {
+        "kind": "command",
+        "command": "example"
+      }
+    ],
+    "agent": {
+      "adapter": "example"
+    },
+    "risk": "LOW",
+    "timeout_seconds": 1,
+    "budget": {
+      "max_cost": 0,
+      "max_tokens": 0
+    },
+    "max_attempts": 1
+  },
+  "invalid": {
+    "schema_version": "99.0",
+    "id": "example",
+    "objective": "example",
+    "task_id": "example",
+    "requirement_ids": [
+      "example"
+    ],
+    "inputs": [],
+    "outputs": [],
+    "dependencies": [],
+    "resources": [],
+    "file_scope": [
+      "example"
+    ],
+    "acceptance": [
+      "example"
+    ],
+    "verifiers": [
+      {
+        "kind": "command",
+        "command": "example"
+      }
+    ],
+    "agent": {
+      "adapter": "example"
+    },
+    "risk": "LOW",
+    "timeout_seconds": 1,
+    "budget": {
+      "max_cost": 0,
+      "max_tokens": 0
+    },
+    "max_attempts": 1
+  }
+}

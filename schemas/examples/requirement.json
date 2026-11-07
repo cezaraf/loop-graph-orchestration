@@ -1,0 +1,20 @@
+{
+  "valid": {
+    "schema_version": "1.0",
+    "id": "example",
+    "name": "example",
+    "text": "example",
+    "scenarios": [],
+    "capability": "example",
+    "operation": "ADDED"
+  },
+  "invalid": {
+    "schema_version": "99.0",
+    "id": "example",
+    "name": "example",
+    "text": "example",
+    "scenarios": [],
+    "capability": "example",
+    "operation": "ADDED"
+  }
+}

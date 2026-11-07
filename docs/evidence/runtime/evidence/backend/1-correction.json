@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "unit_id": "backend",
+  "verdict": "FAIL",
+  "failure_class": "TEST_FAILURE",
+  "reason": "[{\"duration_seconds\":0.322406530380249,\"evidence\":{\"command\":\"backend\",\"exit_code\":1,\"stderr\":\"Exception in thread \\\"main\\\" java.lang.AssertionError: Expected HTTP 404 Actual HTTP 200\\n\\tat PolicyCheck.main(PolicyCheck.java:1)\\n{\\\"verdict\\\": \\\"FAIL\\\", \\\"oracle\\\": \\\"backend\\\", \\\"reason\\\": \\\"Command '['java', '-cp', '/tmp/tmpe25cqgd9', 'PolicyCheck']' returned non-zero exit status 1.\\\"}\\n\",\"stdout\":\"\"},\"failure_class\":\"TEST_FAILURE\",\"kind\":\"command\",\"passed\":false,\"schema_version\":\"1.0\"}]",
+  "evidence": [
+    {
+      "schema_version": "1.0",
+      "kind": "command",
+      "passed": false,
+      "failure_class": "TEST_FAILURE",
+      "evidence": {
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "Exception in thread \"main\" java.lang.AssertionError: Expected HTTP 404 Actual HTTP 200\n\tat PolicyCheck.main(PolicyCheck.java:1)\n{\"verdict\": \"FAIL\", \"oracle\": \"backend\", \"reason\": \"Command '['java', '-cp', '/tmp/tmpe25cqgd9', 'PolicyCheck']' returned non-zero exit status 1.\"}\n",
+        "command": "backend"
+      },
+      "duration_seconds": 0.322406530380249
+    }
+  ],
+  "scope": {
+    "allowed": [
+      "backend/**"
+    ],
+    "forbidden": [
+      ".lgo/**",
+      "openspec/**",
+      "verification/**",
+      ".git/**"
+    ]
+  },
+  "remaining_attempts": 2,
+  "remaining_budget": {
+    "max_cost": 1,
+    "max_tokens": 10000
+  },
+  "next_action": "CORRECT"
+}

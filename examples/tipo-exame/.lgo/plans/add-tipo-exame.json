@@ -1,0 +1,329 @@
+{
+  "schema_version": "1.0",
+  "change_id": "add-tipo-exame",
+  "units": [
+    {
+      "id": "contract",
+      "objective": "Publicar contrato OpenAPI",
+      "task_id": "1.1",
+      "requirement_ids": [
+        "tipo-exame::Contrato"
+      ],
+      "inputs": [
+        "openspec/changes/add-tipo-exame/design.md"
+      ],
+      "outputs": [
+        "contract/openapi.json"
+      ],
+      "dependencies": [],
+      "resources": [],
+      "file_scope": [
+        "contract/**"
+      ],
+      "acceptance": [
+        "Verificador externo deve terminar com código zero"
+      ],
+      "verifiers": [
+        {
+          "kind": "command",
+          "command": "contract"
+        }
+      ],
+      "agent": {
+        "adapter": "mock",
+        "profile": "coder",
+        "attempts": [
+          {
+            "files": {
+              "contract/openapi.json": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"TipoExame\",\n    \"version\": \"1.0.0\"\n  },\n  \"paths\": {\n    \"/api/tipos-exame\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Lista\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"$ref\": \"#/components/schemas/TipoExame\"\n                  }\n                }\n              }\n            }\n          }\n        }\n      },\n      \"post\": {\n        \"requestBody\": {\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/TipoExame\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"201\": {\n            \"description\": \"Criado\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/TipoExame\"\n                }\n              }\n            }\n          },\n          \"400\": {\n            \"description\": \"Dados inválidos\"\n          },\n          \"409\": {\n            \"description\": \"Código duplicado\"\n          }\n        }\n      }\n    },\n    \"/api/tipos-exame/{codigo}\": {\n      \"parameters\": [\n        {\n          \"in\": \"path\",\n          \"name\": \"codigo\",\n          \"required\": true,\n          \"schema\": {\n            \"type\": \"string\"\n          }\n        }\n      ],\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Encontrado\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/TipoExame\"\n                }\n              }\n            }\n          },\n          \"404\": {\n            \"description\": \"Inexistente\"\n          }\n        }\n      },\n      \"put\": {\n        \"requestBody\": {\n          \"required\": true,\n          \"content\": {\n            \"application/json\": {\n              \"schema\": {\n                \"$ref\": \"#/components/schemas/TipoExame\"\n              }\n            }\n          }\n        },\n        \"responses\": {\n          \"200\": {\n            \"description\": \"Atualizado\",\n            \"content\": {\n              \"application/json\": {\n                \"schema\": {\n                  \"$ref\": \"#/components/schemas/TipoExame\"\n                }\n              }\n            }\n          },\n          \"404\": {\n            \"description\": \"Inexistente\"\n          },\n          \"400\": {\n            \"description\": \"Dados inválidos\"\n          }\n        }\n      },\n      \"delete\": {\n        \"responses\": {\n          \"204\": {\n            \"description\": \"Excluído\"\n          },\n          \"404\": {\n            \"description\": \"Inexistente\"\n          }\n        }\n      }\n    }\n  },\n  \"components\": {\n    \"schemas\": {\n      \"TipoExame\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"codigo\",\n          \"nome\"\n        ],\n        \"properties\": {\n          \"codigo\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 30\n          },\n          \"nome\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 120\n          }\n        }\n      }\n    }\n  }\n}\n"
+            },
+            "delay_seconds": 0.4
+          }
+        ]
+      },
+      "risk": "LOW",
+      "timeout_seconds": 40,
+      "budget": {
+        "max_cost": 1,
+        "max_tokens": 10000
+      },
+      "max_attempts": 3,
+      "priority": 0
+    },
+    {
+      "id": "backend",
+      "objective": "Implementar CRUD REST e persistência",
+      "task_id": "1.2",
+      "requirement_ids": [
+        "tipo-exame::CRUD REST"
+      ],
+      "inputs": [
+        "openspec/changes/add-tipo-exame/design.md"
+      ],
+      "outputs": [
+        "backend/pom.xml",
+        "backend/src/main/resources/application.properties",
+        "backend/src/main/java/dev/lgo/example/ApiAdvice.java",
+        "backend/src/main/java/dev/lgo/example/TipoExameRepository.java",
+        "backend/src/main/java/dev/lgo/example/Application.java",
+        "backend/src/main/java/dev/lgo/example/TipoExame.java",
+        "backend/src/main/java/dev/lgo/example/NotFoundPolicy.java",
+        "backend/src/main/java/dev/lgo/example/TipoExameService.java",
+        "backend/src/main/java/dev/lgo/example/TipoExameController.java",
+        "backend/src/test/java/dev/lgo/example/TipoExameIntegrationTest.java",
+        "backend/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker"
+      ],
+      "dependencies": [],
+      "resources": [],
+      "file_scope": [
+        "backend/**"
+      ],
+      "acceptance": [
+        "Verificador externo deve terminar com código zero"
+      ],
+      "verifiers": [
+        {
+          "kind": "command",
+          "command": "backend"
+        }
+      ],
+      "agent": {
+        "adapter": "mock",
+        "profile": "coder",
+        "attempts": [
+          {
+            "files": {
+              "backend/pom.xml": "<project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd\">\n  <modelVersion>4.0.0</modelVersion><parent><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-parent</artifactId><version>3.5.16</version><relativePath/></parent>\n  <groupId>dev.lgo.example</groupId><artifactId>tipo-exame</artifactId><version>1.0.0</version><properties><java.version>17</java.version></properties>\n  <dependencies>\n    <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-web</artifactId></dependency>\n    <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-data-jpa</artifactId></dependency>\n    <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-validation</artifactId></dependency>\n    <dependency><groupId>com.h2database</groupId><artifactId>h2</artifactId><scope>runtime</scope></dependency>\n    <dependency><groupId>org.springframework.boot</groupId><artifactId>spring-boot-starter-test</artifactId><scope>test</scope></dependency>\n  </dependencies><build><plugins><plugin><groupId>org.springframework.boot</groupId><artifactId>spring-boot-maven-plugin</artifactId></plugin></plugins></build>\n</project>\n",
+              "backend/src/main/resources/application.properties": "spring.datasource.url=jdbc:h2:mem:tipoexame;DB_CLOSE_DELAY=-1\nspring.jpa.hibernate.ddl-auto=create-drop\nserver.address=127.0.0.1\nserver.error.include-stacktrace=never\nserver.error.include-message=never\n",
+              "backend/src/main/java/dev/lgo/example/ApiAdvice.java": "package dev.lgo.example;\nimport java.util.Map;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.*;\n@RestControllerAdvice public class ApiAdvice {\n @ExceptionHandler(TipoExameService.Missing.class) ResponseEntity<Map<String,String>> missing(TipoExameService.Missing error){return ResponseEntity.status(NotFoundPolicy.status()).body(Map.of(\"message\",error.getMessage()));}\n @ExceptionHandler(TipoExameService.Duplicate.class) ResponseEntity<Map<String,String>> duplicate(){return ResponseEntity.status(409).body(Map.of(\"message\",\"Código já cadastrado\"));}\n}\n",
+              "backend/src/main/java/dev/lgo/example/TipoExameRepository.java": "package dev.lgo.example;\nimport org.springframework.data.jpa.repository.JpaRepository;\npublic interface TipoExameRepository extends JpaRepository<TipoExame,String> {}\n",
+              "backend/src/main/java/dev/lgo/example/Application.java": "package dev.lgo.example;\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n@SpringBootApplication public class Application {\n public static void main(String[] args) {SpringApplication.run(Application.class,args);}\n}\n",
+              "backend/src/main/java/dev/lgo/example/TipoExame.java": "package dev.lgo.example;\nimport jakarta.persistence.Entity;\nimport jakarta.persistence.Id;\nimport jakarta.validation.constraints.NotBlank;\nimport jakarta.validation.constraints.Size;\n@Entity public class TipoExame {\n @Id @NotBlank @Size(max=30) private String codigo;\n @NotBlank @Size(max=120) private String nome;\n protected TipoExame() {}\n public TipoExame(String codigo,String nome){this.codigo=codigo;this.nome=nome;}\n public String getCodigo(){return codigo;}\n public String getNome(){return nome;}\n public void setCodigo(String codigo){this.codigo=codigo;}\n public void setNome(String nome){this.nome=nome;}\n}\n",
+              "backend/src/main/java/dev/lgo/example/NotFoundPolicy.java": "package dev.lgo.example;\n/** Pure Java policy executed by the offline oracle and used by the REST advice. */\npublic final class NotFoundPolicy {\n private NotFoundPolicy() {}\n public static int status(){return 200;}\n}\n",
+              "backend/src/main/java/dev/lgo/example/TipoExameService.java": "package dev.lgo.example;\nimport java.util.List;\nimport org.springframework.stereotype.Service;\nimport org.springframework.transaction.annotation.Transactional;\n@Service @Transactional public class TipoExameService {\n private final TipoExameRepository repository;\n public TipoExameService(TipoExameRepository repository){this.repository=repository;}\n @Transactional(readOnly=true) public List<TipoExame> list(){return repository.findAll();}\n @Transactional(readOnly=true) public TipoExame find(String codigo){return repository.findById(codigo).orElseThrow(()->new Missing(codigo));}\n public TipoExame create(TipoExame value){if(repository.existsById(value.getCodigo()))throw new Duplicate();return repository.save(value);}\n public TipoExame update(String codigo,TipoExame value){TipoExame existing=find(codigo);existing.setNome(value.getNome());return repository.save(existing);}\n public void delete(String codigo){repository.delete(find(codigo));}\n static class Missing extends RuntimeException {Missing(String codigo){super(\"Tipo de exame não encontrado: \"+codigo);}}\n static class Duplicate extends RuntimeException {}\n}\n",
+              "backend/src/main/java/dev/lgo/example/TipoExameController.java": "package dev.lgo.example;\nimport java.net.URI;\nimport java.util.List;\nimport jakarta.validation.Valid;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.*;\n@RestController @RequestMapping(\"/api/tipos-exame\") public class TipoExameController {\n private final TipoExameService service;\n public TipoExameController(TipoExameService service){this.service=service;}\n @GetMapping public List<TipoExame> list(){return service.list();}\n @GetMapping(\"/{codigo}\") public TipoExame find(@PathVariable String codigo){return service.find(codigo);}\n @PostMapping public ResponseEntity<TipoExame> create(@Valid @RequestBody TipoExame value){TipoExame created=service.create(value);return ResponseEntity.created(URI.create(\"/api/tipos-exame/\"+created.getCodigo())).body(created);}\n @PutMapping(\"/{codigo}\") public TipoExame update(@PathVariable String codigo,@Valid @RequestBody TipoExame value){return service.update(codigo,value);}\n @DeleteMapping(\"/{codigo}\") public ResponseEntity<Void> delete(@PathVariable String codigo){service.delete(codigo);return ResponseEntity.noContent().build();}\n}\n",
+              "backend/src/test/java/dev/lgo/example/TipoExameIntegrationTest.java": "package dev.lgo.example;\nimport org.junit.jupiter.api.Test;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;\nimport org.springframework.boot.test.context.SpringBootTest;\nimport org.springframework.http.MediaType;\nimport org.springframework.test.web.servlet.MockMvc;\nimport static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;\nimport static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;\n@SpringBootTest @AutoConfigureMockMvc class TipoExameIntegrationTest {\n @Autowired MockMvc mvc;\n @Test void publishedOpenApiMatchesMissingResponse() throws Exception {\n  var document=new com.fasterxml.jackson.databind.ObjectMapper().readTree(java.nio.file.Path.of(\"../contract/openapi.json\").toFile());\n  org.junit.jupiter.api.Assertions.assertTrue(document.path(\"paths\").path(\"/api/tipos-exame/{codigo}\").path(\"get\").path(\"responses\").has(\"404\"));\n  mvc.perform(get(\"/api/tipos-exame/contract-missing\")).andExpect(status().isNotFound());\n }\n @Test void absentReturns404() throws Exception {mvc.perform(get(\"/api/tipos-exame/absent\")).andExpect(status().isNotFound());}\n @Test void crudAndContract() throws Exception {\n  mvc.perform(post(\"/api/tipos-exame\").contentType(MediaType.APPLICATION_JSON).content(\"{\\\"codigo\\\":\\\"HEM\\\",\\\"nome\\\":\\\"Hemograma\\\"}\")).andExpect(status().isCreated()).andExpect(jsonPath(\"$.codigo\").value(\"HEM\"));\n  mvc.perform(get(\"/api/tipos-exame/HEM\")).andExpect(status().isOk()).andExpect(jsonPath(\"$.nome\").value(\"Hemograma\"));\n  mvc.perform(put(\"/api/tipos-exame/HEM\").contentType(MediaType.APPLICATION_JSON).content(\"{\\\"codigo\\\":\\\"HEM\\\",\\\"nome\\\":\\\"Hemograma completo\\\"}\")).andExpect(status().isOk()).andExpect(jsonPath(\"$.nome\").value(\"Hemograma completo\"));\n  mvc.perform(get(\"/api/tipos-exame\")).andExpect(status().isOk()).andExpect(jsonPath(\"$[0].codigo\").value(\"HEM\"));\n  mvc.perform(delete(\"/api/tipos-exame/HEM\")).andExpect(status().isNoContent());\n  mvc.perform(get(\"/api/tipos-exame/HEM\")).andExpect(status().isNotFound());\n }\n @Test void rejectsInvalidInput() throws Exception {mvc.perform(post(\"/api/tipos-exame\").contentType(MediaType.APPLICATION_JSON).content(\"{\\\"codigo\\\":\\\"\\\",\\\"nome\\\":\\\"\\\"}\")).andExpect(status().isBadRequest());}\n @Test void duplicateReturns409() throws Exception {\n  String value=\"{\\\"codigo\\\":\\\"DUP\\\",\\\"nome\\\":\\\"Duplicado\\\"}\";\n  mvc.perform(post(\"/api/tipos-exame\").contentType(MediaType.APPLICATION_JSON).content(value)).andExpect(status().isCreated());\n  mvc.perform(post(\"/api/tipos-exame\").contentType(MediaType.APPLICATION_JSON).content(value)).andExpect(status().isConflict());\n }\n}\n",
+              "backend/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker": "mock-maker-subclass\n"
+            },
+            "delay_seconds": 0.4
+          },
+          {
+            "files": {
+              "backend/src/main/java/dev/lgo/example/NotFoundPolicy.java": "package dev.lgo.example;\n/** Pure Java policy executed by the offline oracle and used by the REST advice. */\npublic final class NotFoundPolicy {\n private NotFoundPolicy() {}\n public static int status(){return 404;}\n}\n"
+            },
+            "delay_seconds": 0.1
+          }
+        ]
+      },
+      "risk": "LOW",
+      "timeout_seconds": 40,
+      "budget": {
+        "max_cost": 1,
+        "max_tokens": 10000
+      },
+      "max_attempts": 3,
+      "priority": 0
+    },
+    {
+      "id": "frontend",
+      "objective": "Implementar formulário Angular/PrimeNG",
+      "task_id": "1.3",
+      "requirement_ids": [
+        "tipo-exame::Formulário"
+      ],
+      "inputs": [
+        "openspec/changes/add-tipo-exame/design.md"
+      ],
+      "outputs": [
+        "frontend/package.json",
+        "frontend/tsconfig.app.json",
+        "frontend/tsconfig.json",
+        "frontend/proxy.conf.json",
+        "frontend/angular.json",
+        "frontend/src/styles.css",
+        "frontend/src/app.component.ts",
+        "frontend/src/index.html",
+        "frontend/src/main.ts"
+      ],
+      "dependencies": [],
+      "resources": [],
+      "file_scope": [
+        "frontend/**"
+      ],
+      "acceptance": [
+        "Verificador externo deve terminar com código zero"
+      ],
+      "verifiers": [
+        {
+          "kind": "command",
+          "command": "frontend"
+        }
+      ],
+      "agent": {
+        "adapter": "mock",
+        "profile": "coder",
+        "attempts": [
+          {
+            "files": {
+              "frontend/package.json": "{\n  \"name\": \"tipo-exame-ui\",\n  \"version\": \"1.0.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"build\": \"ng build\",\n    \"start\": \"ng serve --host 127.0.0.1 --proxy-config proxy.conf.json\"\n  },\n  \"dependencies\": {\n    \"@angular/animations\": \"20.3.35\",\n    \"@angular/common\": \"20.3.35\",\n    \"@angular/compiler\": \"20.3.35\",\n    \"@angular/core\": \"20.3.35\",\n    \"@angular/forms\": \"20.3.35\",\n    \"@angular/platform-browser\": \"20.3.35\",\n    \"primeng\": \"20.4.0\",\n    \"@primeuix/themes\": \"1.2.5\",\n    \"rxjs\": \"7.8.2\",\n    \"tslib\": \"2.8.1\",\n    \"zone.js\": \"0.15.1\"\n  },\n  \"devDependencies\": {\n    \"@angular/build\": \"20.3.13\",\n    \"@angular/cli\": \"20.3.13\",\n    \"@angular/compiler-cli\": \"20.3.35\",\n    \"typescript\": \"5.9.3\"\n  }\n}\n",
+              "frontend/tsconfig.app.json": "{\n  \"extends\": \"./tsconfig.json\",\n  \"compilerOptions\": {\n    \"outDir\": \"./out-tsc/app\",\n    \"types\": []\n  },\n  \"files\": [\n    \"src/main.ts\"\n  ]\n}",
+              "frontend/tsconfig.json": "{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"module\": \"ES2022\",\n    \"moduleResolution\": \"bundler\",\n    \"strict\": true,\n    \"experimentalDecorators\": true,\n    \"skipLibCheck\": true,\n    \"lib\": [\n      \"ES2022\",\n      \"dom\"\n    ]\n  },\n  \"angularCompilerOptions\": {\n    \"strictTemplates\": true\n  }\n}",
+              "frontend/proxy.conf.json": "{\n  \"/api\": {\n    \"target\": \"http://127.0.0.1:8080\",\n    \"secure\": false\n  }\n}",
+              "frontend/angular.json": "{\n  \"version\": 1,\n  \"projects\": {\n    \"tipo-exame\": {\n      \"projectType\": \"application\",\n      \"root\": \"\",\n      \"sourceRoot\": \"src\",\n      \"architect\": {\n        \"build\": {\n          \"builder\": \"@angular/build:application\",\n          \"options\": {\n            \"browser\": \"src/main.ts\",\n            \"index\": \"src/index.html\",\n            \"tsConfig\": \"tsconfig.app.json\",\n            \"polyfills\": [\n              \"zone.js\"\n            ],\n            \"styles\": [\n              \"src/styles.css\"\n            ],\n            \"outputPath\": \"dist\"\n          }\n        },\n        \"serve\": {\n          \"builder\": \"@angular/build:dev-server\",\n          \"options\": {\n            \"buildTarget\": \"tipo-exame:build\"\n          }\n        }\n      }\n    }\n  }\n}",
+              "frontend/src/styles.css": "body {font-family:system-ui;margin:2rem;max-width:60rem} form{display:flex;gap:1rem;margin-bottom:2rem} button{margin-right:.5rem} .error{color:#b91c1c}",
+              "frontend/src/app.component.ts": "import { Component, OnInit, inject } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule } from '@angular/forms';\nimport { HttpClient } from '@angular/common/http';\nimport { TableModule } from 'primeng/table';\nimport { ButtonModule } from 'primeng/button';\nimport { InputTextModule } from 'primeng/inputtext';\ninterface TipoExame {codigo:string;nome:string}\n@Component({selector:'app-root',standalone:true,imports:[CommonModule,FormsModule,TableModule,ButtonModule,InputTextModule],template:`\n<h1>Tipos de exame</h1>\n<p class=\"error\" role=\"alert\" *ngIf=\"error\">{{error}}</p>\n<form (ngSubmit)=\"save()\" #form=\"ngForm\">\n <label>Código <input pInputText name=\"codigo\" [(ngModel)]=\"draft.codigo\" required maxlength=\"30\" [disabled]=\"editing\"></label>\n <label>Nome <input pInputText name=\"nome\" [(ngModel)]=\"draft.nome\" required maxlength=\"120\"></label>\n <p-button type=\"submit\" label=\"Salvar\" [disabled]=\"form.invalid || busy\"/>\n <p-button type=\"button\" label=\"Cancelar\" (onClick)=\"reset()\"/>\n</form>\n<p-table [value]=\"items\"><ng-template #header><tr><th>Código</th><th>Nome</th><th>Ações</th></tr></ng-template>\n<ng-template #body let-item><tr><td>{{item.codigo}}</td><td>{{item.nome}}</td><td><p-button label=\"Editar\" (onClick)=\"edit(item)\"/><p-button label=\"Excluir\" severity=\"danger\" (onClick)=\"remove(item)\"/></td></tr></ng-template></p-table>`})\nexport class AppComponent implements OnInit {\n private http=inject(HttpClient);items:TipoExame[]=[];draft:TipoExame={codigo:'',nome:''};editing=false;busy=false;error='';\n ngOnInit(){this.load();}\n load(){this.http.get<TipoExame[]>('/api/tipos-exame').subscribe({next:items=>this.items=items,error:()=>this.error='Não foi possível carregar os exames.'});}\n edit(item:TipoExame){this.draft={...item};this.editing=true;}\n reset(){this.draft={codigo:'',nome:''};this.editing=false;this.error='';}\n save(){this.busy=true;const body={...this.draft};const request=this.editing?this.http.put('/api/tipos-exame/'+encodeURIComponent(body.codigo),body):this.http.post('/api/tipos-exame',body);request.subscribe({next:()=>{this.busy=false;this.reset();this.load();},error:()=>{this.busy=false;this.error='Falha ao salvar. Verifique os dados e o código.';}});}\n remove(item:TipoExame){if(!confirm('Excluir '+item.nome+'?'))return;this.http.delete('/api/tipos-exame/'+encodeURIComponent(item.codigo)).subscribe({next:()=>this.load(),error:()=>this.error='Falha ao excluir.'});}\n}\n",
+              "frontend/src/index.html": "<!doctype html><html lang=\"pt-BR\"><head><meta charset=\"utf-8\"><title>Tipos de exame</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"></head><body><app-root></app-root></body></html>",
+              "frontend/src/main.ts": "import { bootstrapApplication } from '@angular/platform-browser';\nimport { provideHttpClient } from '@angular/common/http';\nimport { provideAnimationsAsync } from '@angular/platform-browser/animations/async';\nimport { providePrimeNG } from 'primeng/config';\nimport Aura from '@primeuix/themes/aura';\nimport { AppComponent } from './app.component';\nbootstrapApplication(AppComponent, {providers:[provideHttpClient(),provideAnimationsAsync(),providePrimeNG({theme:{preset:Aura}})]}).catch(console.error);\n"
+            },
+            "delay_seconds": 0.4
+          }
+        ]
+      },
+      "risk": "LOW",
+      "timeout_seconds": 40,
+      "budget": {
+        "max_cost": 1,
+        "max_tokens": 10000
+      },
+      "max_attempts": 3,
+      "priority": 0
+    },
+    {
+      "id": "security",
+      "objective": "Verificar arquitetura e segurança local",
+      "task_id": "1.4",
+      "requirement_ids": [
+        "tipo-exame::Segurança"
+      ],
+      "inputs": [
+        "backend/src/main/java/dev/lgo/example/TipoExameController.java",
+        "frontend/src/app.component.ts"
+      ],
+      "outputs": [
+        "reports/security.json"
+      ],
+      "dependencies": [
+        {
+          "unit": "backend",
+          "reason": "Consome backend validado para integração global"
+        },
+        {
+          "unit": "frontend",
+          "reason": "Consome frontend validado para integração global"
+        }
+      ],
+      "resources": [],
+      "file_scope": [
+        "reports/security.json"
+      ],
+      "acceptance": [
+        "Verificador externo deve terminar com código zero"
+      ],
+      "verifiers": [
+        {
+          "kind": "command",
+          "command": "security"
+        }
+      ],
+      "agent": {
+        "adapter": "mock",
+        "profile": "coder",
+        "attempts": [
+          {
+            "files": {
+              "reports/security.json": "{\"note\":\"Evidence is external verifier output, not this mock claim\"}\n"
+            },
+            "delay_seconds": 0.4
+          }
+        ]
+      },
+      "risk": "LOW",
+      "timeout_seconds": 40,
+      "budget": {
+        "max_cost": 1,
+        "max_tokens": 10000
+      },
+      "max_attempts": 3,
+      "priority": 0
+    },
+    {
+      "id": "integration",
+      "objective": "Integrar resultados e revalidar contrato",
+      "task_id": "2.1",
+      "requirement_ids": [
+        "tipo-exame::Integração"
+      ],
+      "inputs": [
+        "contract/openapi.json",
+        "backend/src/main/java/dev/lgo/example/NotFoundPolicy.java",
+        "frontend/src/app.component.ts",
+        "reports/security.json"
+      ],
+      "outputs": [
+        "integration/ready.json"
+      ],
+      "dependencies": [
+        {
+          "unit": "contract",
+          "reason": "Consome contract validado para integração global"
+        },
+        {
+          "unit": "backend",
+          "reason": "Consome backend validado para integração global"
+        },
+        {
+          "unit": "frontend",
+          "reason": "Consome frontend validado para integração global"
+        },
+        {
+          "unit": "security",
+          "reason": "Consome security validado para integração global"
+        }
+      ],
+      "resources": [],
+      "file_scope": [
+        "integration/ready.json"
+      ],
+      "acceptance": [
+        "Verificador externo deve terminar com código zero"
+      ],
+      "verifiers": [
+        {
+          "kind": "command",
+          "command": "integration"
+        }
+      ],
+      "agent": {
+        "adapter": "mock",
+        "profile": "coder",
+        "attempts": [
+          {
+            "files": {
+              "integration/ready.json": "{\"assembled\":true}\n"
+            },
+            "delay_seconds": 0.4
+          }
+        ]
+      },
+      "risk": "LOW",
+      "timeout_seconds": 40,
+      "budget": {
+        "max_cost": 1,
+        "max_tokens": 10000
+      },
+      "max_attempts": 3,
+      "priority": 0
+    }
+  ],
+  "integration_verifiers": [
+    {
+      "kind": "command",
+      "command": "integration"
+    }
+  ],
+  "external_inputs": [
+    "openspec/changes/add-tipo-exame/design.md"
+  ],
+  "spec_hash": "d8199aceb7b06bacfc8576aad84ab270ffcf23e8534cc2fa602c6d2a16d557de",
+  "applied_rules": []
+}

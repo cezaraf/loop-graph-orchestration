@@ -1,0 +1,14 @@
+include LICENSE README.md requirements.lock package.json package-lock.json
+recursive-include schemas *.json
+recursive-include templates *.md *.yaml
+recursive-include docs *.md *.json *.xml *.log *.mmd
+recursive-include openspec *.yaml *.md
+recursive-include scripts *.py
+recursive-include evals *.json
+recursive-include tests *.py *.md
+recursive-include examples *.md *.json *.yaml *.java *.xml *.properties *.ts *.css *.html *.log
+prune examples/tipo-exame/frontend/node_modules
+prune examples/tipo-exame/frontend/.angular
+prune examples/tipo-exame/frontend/dist
+prune examples/tipo-exame/backend/target
+global-exclude __pycache__ *.py[cod]

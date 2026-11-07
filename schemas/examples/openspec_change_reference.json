@@ -1,0 +1,18 @@
+{
+  "valid": {
+    "schema_version": "1.0",
+    "change_id": "example",
+    "root": "example",
+    "schema": "spec-driven",
+    "openspec_version": "1.16.1",
+    "spec_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "invalid": {
+    "schema_version": "99.0",
+    "change_id": "example",
+    "root": "example",
+    "schema": "spec-driven",
+    "openspec_version": "1.16.1",
+    "spec_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

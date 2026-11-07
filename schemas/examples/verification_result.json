@@ -1,0 +1,18 @@
+{
+  "valid": {
+    "schema_version": "1.0",
+    "kind": "example",
+    "passed": false,
+    "failure_class": null,
+    "evidence": {},
+    "duration_seconds": 0
+  },
+  "invalid": {
+    "schema_version": "99.0",
+    "kind": "example",
+    "passed": false,
+    "failure_class": null,
+    "evidence": {},
+    "duration_seconds": 0
+  }
+}

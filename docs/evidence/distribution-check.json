@@ -1,0 +1,9 @@
+{
+  "wheel_matches_source": true,
+  "sdist_includes_example_and_config": true,
+  "excluded_dependency_caches": true,
+  "files": {
+    "lgo_engine-0.1.0-py3-none-any.whl": "1cab92a06c59c8ef544378d0cbf47b29df65262bd994b3d909616944aae70f58",
+    "lgo_engine-0.1.0.tar.gz": "c6d7f55074fcae46b8c31f65e0280a72b64df286ac2c97beafc2eba8f003aabc"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "valid": {
+    "schema_version": "1.0",
+    "unit_id": "example",
+    "verdict": "FAIL",
+    "failure_class": "TEST_FAILURE",
+    "reason": "example",
+    "evidence": [
+      {}
+    ],
+    "scope": {
+      "allowed": [
+        "example"
+      ],
+      "forbidden": []
+    },
+    "remaining_attempts": 0,
+    "remaining_budget": {
+      "max_cost": 0,
+      "max_tokens": 0
+    },
+    "next_action": "CORRECT"
+  },
+  "invalid": {
+    "schema_version": "99.0",
+    "unit_id": "example",
+    "verdict": "FAIL",
+    "failure_class": "TEST_FAILURE",
+    "reason": "example",
+    "evidence": [
+      {}
+    ],
+    "scope": {
+      "allowed": [
+        "example"
+      ],
+      "forbidden": []
+    },
+    "remaining_attempts": 0,
+    "remaining_budget": {
+      "max_cost": 0,
+      "max_tokens": 0
+    },
+    "next_action": "CORRECT"
+  }
+}

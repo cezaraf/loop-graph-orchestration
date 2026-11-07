@@ -1,0 +1,6 @@
+schema: spec-driven
+context: |
+  Projeto LGO: runtime local de engenharia agêntica em Python.
+  O OpenSpec é a fonte de verdade de comportamento; o LGO mantém execução em .lgo/.
+  Compor a CLI pública; não clonar o OpenSpec nem depender de SDK proprietário.
+  Documentação em português brasileiro. Evidência executada distingue PASS de BLOCKED.

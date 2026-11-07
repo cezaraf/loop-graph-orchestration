@@ -1,0 +1,27 @@
+{
+  "attempt": 1,
+  "verification": {
+    "passed": false,
+    "results": [
+      {
+        "schema_version": "1.0",
+        "kind": "command",
+        "passed": false,
+        "failure_class": "TEST_FAILURE",
+        "evidence": {
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Exception in thread \"main\" java.lang.AssertionError: Expected HTTP 404 Actual HTTP 200\n\tat PolicyCheck.main(PolicyCheck.java:1)\n{\"verdict\": \"FAIL\", \"oracle\": \"backend\", \"reason\": \"Command '['java', '-cp', '/tmp/tmpe25cqgd9', 'PolicyCheck']' returned non-zero exit status 1.\"}\n",
+          "command": "backend"
+        },
+        "duration_seconds": 0.322406530380249
+      }
+    ]
+  },
+  "patch_hash": "4f3a37fca97a774f74200410884a464719b4cf5a30bf9fa8d8a26654cd0c934c",
+  "duration_seconds": 0.7298641204833984,
+  "usage": {
+    "cost": 0,
+    "tokens": 0
+  }
+}

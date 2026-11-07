@@ -1,0 +1,4 @@
+schema: spec-driven
+context: |
+  CRUD local de demonstração TipoExame, Java 17/Spring Boot, Angular/PrimeNG.
+  Não há autenticação nem dados pessoais; uso apenas local.

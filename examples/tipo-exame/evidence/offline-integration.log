@@ -1,0 +1,6 @@
+HTTP 404 policy PASS
+OpenAPI deterministic contract PASS
+backend source and executable Java policy PASS; full Spring tests separate
+frontend source architecture PASS; browser E2E separate
+security and architecture source checks PASS; unauthenticated loopback demo only
+offline composite integration PASS; HTTP Spring/browser test suites remain distinct

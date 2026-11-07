@@ -1,0 +1,334 @@
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=77
+  - wheel
+* Getting build dependencies for sdist...
+running egg_info
+writing lgo_engine.egg-info/PKG-INFO
+writing dependency_links to lgo_engine.egg-info/dependency_links.txt
+writing entry points to lgo_engine.egg-info/entry_points.txt
+writing requirements to lgo_engine.egg-info/requires.txt
+writing top-level names to lgo_engine.egg-info/top_level.txt
+reading manifest file 'lgo_engine.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+no previously-included directories found matching 'examples/tipo-exame/frontend/.angular'
+warning: no previously-included files matching '__pycache__' found anywhere in distribution
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+adding license file 'LICENSE'
+writing manifest file 'lgo_engine.egg-info/SOURCES.txt'
+* Building sdist...
+running sdist
+running egg_info
+writing lgo_engine.egg-info/PKG-INFO
+writing dependency_links to lgo_engine.egg-info/dependency_links.txt
+writing entry points to lgo_engine.egg-info/entry_points.txt
+writing requirements to lgo_engine.egg-info/requires.txt
+writing top-level names to lgo_engine.egg-info/top_level.txt
+reading manifest file 'lgo_engine.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+no previously-included directories found matching 'examples/tipo-exame/frontend/.angular'
+warning: no previously-included files matching '__pycache__' found anywhere in distribution
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+adding license file 'LICENSE'
+writing manifest file 'lgo_engine.egg-info/SOURCES.txt'
+running check
+creating lgo_engine-0.1.0
+creating lgo_engine-0.1.0/docs
+creating lgo_engine-0.1.0/docs/adr
+creating lgo_engine-0.1.0/docs/evidence
+creating lgo_engine-0.1.0/docs/evidence/runtime
+creating lgo_engine-0.1.0/docs/evidence/runtime/evidence
+creating lgo_engine-0.1.0/docs/evidence/runtime/evidence/backend
+creating lgo_engine-0.1.0/docs/evidence/runtime/evidence/contract
+creating lgo_engine-0.1.0/docs/evidence/runtime/evidence/frontend
+creating lgo_engine-0.1.0/docs/evidence/runtime/evidence/integration
+creating lgo_engine-0.1.0/docs/evidence/runtime/evidence/security
+creating lgo_engine-0.1.0/docs/references
+creating lgo_engine-0.1.0/evals
+creating lgo_engine-0.1.0/examples/tipo-exame
+creating lgo_engine-0.1.0/examples/tipo-exame/.lgo
+creating lgo_engine-0.1.0/examples/tipo-exame/.lgo/bindings
+creating lgo_engine-0.1.0/examples/tipo-exame/.lgo/plans
+creating lgo_engine-0.1.0/examples/tipo-exame/backend
+creating lgo_engine-0.1.0/examples/tipo-exame/backend/src/main/java/dev/lgo/example
+creating lgo_engine-0.1.0/examples/tipo-exame/backend/src/main/resources
+creating lgo_engine-0.1.0/examples/tipo-exame/backend/src/test/java/dev/lgo/example
+creating lgo_engine-0.1.0/examples/tipo-exame/contract
+creating lgo_engine-0.1.0/examples/tipo-exame/evidence
+creating lgo_engine-0.1.0/examples/tipo-exame/frontend
+creating lgo_engine-0.1.0/examples/tipo-exame/frontend/src
+creating lgo_engine-0.1.0/examples/tipo-exame/openspec
+creating lgo_engine-0.1.0/examples/tipo-exame/openspec/changes/add-tipo-exame
+creating lgo_engine-0.1.0/examples/tipo-exame/openspec/changes/add-tipo-exame/specs/tipo-exame
+creating lgo_engine-0.1.0/lgo
+creating lgo_engine-0.1.0/lgo_engine.egg-info
+creating lgo_engine-0.1.0/openspec
+creating lgo_engine-0.1.0/openspec/changes/build-lgo
+creating lgo_engine-0.1.0/openspec/changes/build-lgo/specs/agent-orchestration
+creating lgo_engine-0.1.0/schemas
+creating lgo_engine-0.1.0/schemas/examples
+creating lgo_engine-0.1.0/scripts
+creating lgo_engine-0.1.0/templates
+creating lgo_engine-0.1.0/tests
+copying files to lgo_engine-0.1.0...
+copying LICENSE -> lgo_engine-0.1.0
+copying MANIFEST.in -> lgo_engine-0.1.0
+copying README.md -> lgo_engine-0.1.0
+copying package-lock.json -> lgo_engine-0.1.0
+copying package.json -> lgo_engine-0.1.0
+copying pyproject.toml -> lgo_engine-0.1.0
+copying requirements.lock -> lgo_engine-0.1.0
+copying docs/acceptance.md -> lgo_engine-0.1.0/docs
+copying docs/adapters.md -> lgo_engine-0.1.0/docs
+copying docs/architecture.md -> lgo_engine-0.1.0/docs
+copying docs/implementation-graph.json -> lgo_engine-0.1.0/docs
+copying docs/installation.md -> lgo_engine-0.1.0/docs
+copying docs/recovery.md -> lgo_engine-0.1.0/docs
+copying docs/report.md -> lgo_engine-0.1.0/docs
+copying docs/roadmap.md -> lgo_engine-0.1.0/docs
+copying docs/security.md -> lgo_engine-0.1.0/docs
+copying docs/state-machine.md -> lgo_engine-0.1.0/docs
+copying docs/adr/001-runtime.md -> lgo_engine-0.1.0/docs/adr
+copying docs/evidence/demo-graph.mmd -> lgo_engine-0.1.0/docs/evidence
+copying docs/evidence/demo-report.json -> lgo_engine-0.1.0/docs/evidence
+copying docs/evidence/evals.json -> lgo_engine-0.1.0/docs/evidence
+copying docs/evidence/merged-angular-build.log -> lgo_engine-0.1.0/docs/evidence
+copying docs/evidence/merged-source-comparison.json -> lgo_engine-0.1.0/docs/evidence
+copying docs/evidence/merged-spring-tests.log -> lgo_engine-0.1.0/docs/evidence
+copying docs/evidence/package-build.log -> lgo_engine-0.1.0/docs/evidence
+copying docs/evidence/pytest.xml -> lgo_engine-0.1.0/docs/evidence
+copying docs/evidence/self-progress-sync.json -> lgo_engine-0.1.0/docs/evidence
+copying docs/evidence/wheel-install.log -> lgo_engine-0.1.0/docs/evidence
+copying docs/evidence/runtime/execution.json -> lgo_engine-0.1.0/docs/evidence/runtime
+copying docs/evidence/runtime/graph.json -> lgo_engine-0.1.0/docs/evidence/runtime
+copying docs/evidence/runtime/evidence/integration.json -> lgo_engine-0.1.0/docs/evidence/runtime/evidence
+copying docs/evidence/runtime/evidence/backend/1-correction.json -> lgo_engine-0.1.0/docs/evidence/runtime/evidence/backend
+copying docs/evidence/runtime/evidence/backend/1.json -> lgo_engine-0.1.0/docs/evidence/runtime/evidence/backend
+copying docs/evidence/runtime/evidence/backend/2.json -> lgo_engine-0.1.0/docs/evidence/runtime/evidence/backend
+copying docs/evidence/runtime/evidence/contract/1.json -> lgo_engine-0.1.0/docs/evidence/runtime/evidence/contract
+copying docs/evidence/runtime/evidence/frontend/1.json -> lgo_engine-0.1.0/docs/evidence/runtime/evidence/frontend
+copying docs/evidence/runtime/evidence/integration/1.json -> lgo_engine-0.1.0/docs/evidence/runtime/evidence/integration
+copying docs/evidence/runtime/evidence/security/1.json -> lgo_engine-0.1.0/docs/evidence/runtime/evidence/security
+copying docs/references/openspec.md -> lgo_engine-0.1.0/docs/references
+copying docs/references/research.md -> lgo_engine-0.1.0/docs/references
+copying docs/references/self-spec-validation.json -> lgo_engine-0.1.0/docs/references
+copying evals/cases.json -> lgo_engine-0.1.0/evals
+copying examples/tipo-exame/README.md -> lgo_engine-0.1.0/examples/tipo-exame
+copying examples/tipo-exame/.lgo/config.yaml -> lgo_engine-0.1.0/examples/tipo-exame/.lgo
+copying examples/tipo-exame/.lgo/bindings/add-tipo-exame.json -> lgo_engine-0.1.0/examples/tipo-exame/.lgo/bindings
+copying examples/tipo-exame/.lgo/plans/add-tipo-exame.json -> lgo_engine-0.1.0/examples/tipo-exame/.lgo/plans
+copying examples/tipo-exame/backend/pom.xml -> lgo_engine-0.1.0/examples/tipo-exame/backend
+copying examples/tipo-exame/backend/src/main/java/dev/lgo/example/ApiAdvice.java -> lgo_engine-0.1.0/examples/tipo-exame/backend/src/main/java/dev/lgo/example
+copying examples/tipo-exame/backend/src/main/java/dev/lgo/example/Application.java -> lgo_engine-0.1.0/examples/tipo-exame/backend/src/main/java/dev/lgo/example
+copying examples/tipo-exame/backend/src/main/java/dev/lgo/example/NotFoundPolicy.java -> lgo_engine-0.1.0/examples/tipo-exame/backend/src/main/java/dev/lgo/example
+copying examples/tipo-exame/backend/src/main/java/dev/lgo/example/TipoExame.java -> lgo_engine-0.1.0/examples/tipo-exame/backend/src/main/java/dev/lgo/example
+copying examples/tipo-exame/backend/src/main/java/dev/lgo/example/TipoExameController.java -> lgo_engine-0.1.0/examples/tipo-exame/backend/src/main/java/dev/lgo/example
+copying examples/tipo-exame/backend/src/main/java/dev/lgo/example/TipoExameRepository.java -> lgo_engine-0.1.0/examples/tipo-exame/backend/src/main/java/dev/lgo/example
+copying examples/tipo-exame/backend/src/main/java/dev/lgo/example/TipoExameService.java -> lgo_engine-0.1.0/examples/tipo-exame/backend/src/main/java/dev/lgo/example
+copying examples/tipo-exame/backend/src/main/resources/application.properties -> lgo_engine-0.1.0/examples/tipo-exame/backend/src/main/resources
+copying examples/tipo-exame/backend/src/test/java/dev/lgo/example/TipoExameIntegrationTest.java -> lgo_engine-0.1.0/examples/tipo-exame/backend/src/test/java/dev/lgo/example
+copying examples/tipo-exame/contract/openapi.json -> lgo_engine-0.1.0/examples/tipo-exame/contract
+copying examples/tipo-exame/evidence/angular-build.log -> lgo_engine-0.1.0/examples/tipo-exame/evidence
+copying examples/tipo-exame/evidence/npm-audit-production.json -> lgo_engine-0.1.0/examples/tipo-exame/evidence
+copying examples/tipo-exame/evidence/offline-integration.log -> lgo_engine-0.1.0/examples/tipo-exame/evidence
+copying examples/tipo-exame/evidence/spring-negative-control.log -> lgo_engine-0.1.0/examples/tipo-exame/evidence
+copying examples/tipo-exame/evidence/spring-tests.log -> lgo_engine-0.1.0/examples/tipo-exame/evidence
+copying examples/tipo-exame/evidence/validation.json -> lgo_engine-0.1.0/examples/tipo-exame/evidence
+copying examples/tipo-exame/frontend/angular.json -> lgo_engine-0.1.0/examples/tipo-exame/frontend
+copying examples/tipo-exame/frontend/package-lock.json -> lgo_engine-0.1.0/examples/tipo-exame/frontend
+copying examples/tipo-exame/frontend/package.json -> lgo_engine-0.1.0/examples/tipo-exame/frontend
+copying examples/tipo-exame/frontend/proxy.conf.json -> lgo_engine-0.1.0/examples/tipo-exame/frontend
+copying examples/tipo-exame/frontend/tsconfig.app.json -> lgo_engine-0.1.0/examples/tipo-exame/frontend
+copying examples/tipo-exame/frontend/tsconfig.json -> lgo_engine-0.1.0/examples/tipo-exame/frontend
+copying examples/tipo-exame/frontend/src/app.component.ts -> lgo_engine-0.1.0/examples/tipo-exame/frontend/src
+copying examples/tipo-exame/frontend/src/index.html -> lgo_engine-0.1.0/examples/tipo-exame/frontend/src
+copying examples/tipo-exame/frontend/src/main.ts -> lgo_engine-0.1.0/examples/tipo-exame/frontend/src
+copying examples/tipo-exame/frontend/src/styles.css -> lgo_engine-0.1.0/examples/tipo-exame/frontend/src
+copying examples/tipo-exame/openspec/config.yaml -> lgo_engine-0.1.0/examples/tipo-exame/openspec
+copying examples/tipo-exame/openspec/changes/add-tipo-exame/.openspec.yaml -> lgo_engine-0.1.0/examples/tipo-exame/openspec/changes/add-tipo-exame
+copying examples/tipo-exame/openspec/changes/add-tipo-exame/design.md -> lgo_engine-0.1.0/examples/tipo-exame/openspec/changes/add-tipo-exame
+copying examples/tipo-exame/openspec/changes/add-tipo-exame/proposal.md -> lgo_engine-0.1.0/examples/tipo-exame/openspec/changes/add-tipo-exame
+copying examples/tipo-exame/openspec/changes/add-tipo-exame/tasks.md -> lgo_engine-0.1.0/examples/tipo-exame/openspec/changes/add-tipo-exame
+copying examples/tipo-exame/openspec/changes/add-tipo-exame/specs/tipo-exame/spec.md -> lgo_engine-0.1.0/examples/tipo-exame/openspec/changes/add-tipo-exame/specs/tipo-exame
+copying lgo/__init__.py -> lgo_engine-0.1.0/lgo
+copying lgo/__main__.py -> lgo_engine-0.1.0/lgo
+copying lgo/adapters.py -> lgo_engine-0.1.0/lgo
+copying lgo/cli.py -> lgo_engine-0.1.0/lgo
+copying lgo/contracts.py -> lgo_engine-0.1.0/lgo
+copying lgo/engine.py -> lgo_engine-0.1.0/lgo
+copying lgo/gates.py -> lgo_engine-0.1.0/lgo
+copying lgo/graph.py -> lgo_engine-0.1.0/lgo
+copying lgo/learning.py -> lgo_engine-0.1.0/lgo
+copying lgo/merge.py -> lgo_engine-0.1.0/lgo
+copying lgo/observability.py -> lgo_engine-0.1.0/lgo
+copying lgo/openspec.py -> lgo_engine-0.1.0/lgo
+copying lgo/state.py -> lgo_engine-0.1.0/lgo
+copying lgo/util.py -> lgo_engine-0.1.0/lgo
+copying lgo/verification.py -> lgo_engine-0.1.0/lgo
+copying lgo_engine.egg-info/PKG-INFO -> lgo_engine-0.1.0/lgo_engine.egg-info
+copying lgo_engine.egg-info/SOURCES.txt -> lgo_engine-0.1.0/lgo_engine.egg-info
+copying lgo_engine.egg-info/dependency_links.txt -> lgo_engine-0.1.0/lgo_engine.egg-info
+copying lgo_engine.egg-info/entry_points.txt -> lgo_engine-0.1.0/lgo_engine.egg-info
+copying lgo_engine.egg-info/requires.txt -> lgo_engine-0.1.0/lgo_engine.egg-info
+copying lgo_engine.egg-info/top_level.txt -> lgo_engine-0.1.0/lgo_engine.egg-info
+copying openspec/config.yaml -> lgo_engine-0.1.0/openspec
+copying openspec/changes/build-lgo/.openspec.yaml -> lgo_engine-0.1.0/openspec/changes/build-lgo
+copying openspec/changes/build-lgo/design.md -> lgo_engine-0.1.0/openspec/changes/build-lgo
+copying openspec/changes/build-lgo/proposal.md -> lgo_engine-0.1.0/openspec/changes/build-lgo
+copying openspec/changes/build-lgo/tasks.md -> lgo_engine-0.1.0/openspec/changes/build-lgo
+copying openspec/changes/build-lgo/specs/agent-orchestration/spec.md -> lgo_engine-0.1.0/openspec/changes/build-lgo/specs/agent-orchestration
+copying schemas/acceptance_criterion.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/agent_request.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/agent_result.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/approval_request.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/correction_request.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/execution_event.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/execution_graph.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/execution_manifest.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/gate_decision.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/learning_candidate.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/merge_result.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/openspec_change_reference.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/parsed_specification.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/requirement.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/verification_result.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/work_unit.schema.json -> lgo_engine-0.1.0/schemas
+copying schemas/examples/acceptance_criterion.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/agent_request.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/agent_result.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/approval_request.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/correction_request.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/execution_event.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/execution_graph.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/execution_manifest.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/gate_decision.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/learning_candidate.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/merge_result.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/openspec_change_reference.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/parsed_specification.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/requirement.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/verification_result.json -> lgo_engine-0.1.0/schemas/examples
+copying schemas/examples/work_unit.json -> lgo_engine-0.1.0/schemas/examples
+copying scripts/demo.py -> lgo_engine-0.1.0/scripts
+copying scripts/eval.py -> lgo_engine-0.1.0/scripts
+copying scripts/package.py -> lgo_engine-0.1.0/scripts
+copying scripts/sign_approval.py -> lgo_engine-0.1.0/scripts
+copying templates/README.md -> lgo_engine-0.1.0/templates
+copying templates/config.yaml -> lgo_engine-0.1.0/templates
+copying templates/policies.yaml -> lgo_engine-0.1.0/templates
+copying tests/README.md -> lgo_engine-0.1.0/tests
+copying tests/test_adapters.py -> lgo_engine-0.1.0/tests
+copying tests/test_adversarial.py -> lgo_engine-0.1.0/tests
+copying tests/test_cli.py -> lgo_engine-0.1.0/tests
+copying tests/test_contracts.py -> lgo_engine-0.1.0/tests
+copying tests/test_engine.py -> lgo_engine-0.1.0/tests
+copying tests/test_openspec.py -> lgo_engine-0.1.0/tests
+Writing lgo_engine-0.1.0/setup.cfg
+Creating tar archive
+removing 'lgo_engine-0.1.0' (and everything under it)
+* Building wheel from sdist
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=77
+  - wheel
+* Getting build dependencies for wheel...
+running egg_info
+writing lgo_engine.egg-info/PKG-INFO
+writing dependency_links to lgo_engine.egg-info/dependency_links.txt
+writing entry points to lgo_engine.egg-info/entry_points.txt
+writing requirements to lgo_engine.egg-info/requires.txt
+writing top-level names to lgo_engine.egg-info/top_level.txt
+reading manifest file 'lgo_engine.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+no previously-included directories found matching 'examples/tipo-exame/frontend/node_modules'
+no previously-included directories found matching 'examples/tipo-exame/frontend/.angular'
+no previously-included directories found matching 'examples/tipo-exame/frontend/dist'
+no previously-included directories found matching 'examples/tipo-exame/backend/target'
+warning: no previously-included files matching '__pycache__' found anywhere in distribution
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+adding license file 'LICENSE'
+writing manifest file 'lgo_engine.egg-info/SOURCES.txt'
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build/lib/lgo
+copying lgo/merge.py -> build/lib/lgo
+copying lgo/cli.py -> build/lib/lgo
+copying lgo/state.py -> build/lib/lgo
+copying lgo/__init__.py -> build/lib/lgo
+copying lgo/contracts.py -> build/lib/lgo
+copying lgo/engine.py -> build/lib/lgo
+copying lgo/openspec.py -> build/lib/lgo
+copying lgo/__main__.py -> build/lib/lgo
+copying lgo/verification.py -> build/lib/lgo
+copying lgo/learning.py -> build/lib/lgo
+copying lgo/adapters.py -> build/lib/lgo
+copying lgo/graph.py -> build/lib/lgo
+copying lgo/gates.py -> build/lib/lgo
+copying lgo/observability.py -> build/lib/lgo
+copying lgo/util.py -> build/lib/lgo
+running egg_info
+writing lgo_engine.egg-info/PKG-INFO
+writing dependency_links to lgo_engine.egg-info/dependency_links.txt
+writing entry points to lgo_engine.egg-info/entry_points.txt
+writing requirements to lgo_engine.egg-info/requires.txt
+writing top-level names to lgo_engine.egg-info/top_level.txt
+reading manifest file 'lgo_engine.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+no previously-included directories found matching 'examples/tipo-exame/frontend/node_modules'
+no previously-included directories found matching 'examples/tipo-exame/frontend/.angular'
+no previously-included directories found matching 'examples/tipo-exame/frontend/dist'
+no previously-included directories found matching 'examples/tipo-exame/backend/target'
+warning: no previously-included files matching '__pycache__' found anywhere in distribution
+warning: no previously-included files matching '*.py[cod]' found anywhere in distribution
+adding license file 'LICENSE'
+writing manifest file 'lgo_engine.egg-info/SOURCES.txt'
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/lgo
+copying build/lib/lgo/merge.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/cli.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/state.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/__init__.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/contracts.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/engine.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/openspec.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/__main__.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/verification.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/learning.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/adapters.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/graph.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/gates.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/observability.py -> build/bdist.linux-x86_64/wheel/./lgo
+copying build/lib/lgo/util.py -> build/bdist.linux-x86_64/wheel/./lgo
+running install_egg_info
+Copying lgo_engine.egg-info to build/bdist.linux-x86_64/wheel/./lgo_engine-0.1.0-py3.12.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/lgo_engine-0.1.0.dist-info/WHEEL
+creating '/workspace/scratch/b73967659d38/lgo-dist/.tmp-8n7f6zzr/lgo_engine-0.1.0-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'lgo/__init__.py'
+adding 'lgo/__main__.py'
+adding 'lgo/adapters.py'
+adding 'lgo/cli.py'
+adding 'lgo/contracts.py'
+adding 'lgo/engine.py'
+adding 'lgo/gates.py'
+adding 'lgo/graph.py'
+adding 'lgo/learning.py'
+adding 'lgo/merge.py'
+adding 'lgo/observability.py'
+adding 'lgo/openspec.py'
+adding 'lgo/state.py'
+adding 'lgo/util.py'
+adding 'lgo/verification.py'
+adding 'lgo_engine-0.1.0.dist-info/licenses/LICENSE'
+adding 'lgo_engine-0.1.0.dist-info/METADATA'
+adding 'lgo_engine-0.1.0.dist-info/WHEEL'
+adding 'lgo_engine-0.1.0.dist-info/entry_points.txt'
+adding 'lgo_engine-0.1.0.dist-info/top_level.txt'
+adding 'lgo_engine-0.1.0.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built lgo_engine-0.1.0.tar.gz and lgo_engine-0.1.0-py3-none-any.whl

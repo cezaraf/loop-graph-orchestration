@@ -1,0 +1,8 @@
+schema_version: '1.0'
+high_risk_paths:
+  - backend/**/security/**
+  - database/migrations/**
+  - infra/**
+medium_requires_approval: false
+max_files_per_patch: 100
+# Built-in sensitive-path gates cannot be downgraded by this file.

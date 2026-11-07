@@ -1,0 +1,112 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "unit_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "verdict": {
+      "enum": [
+        "FAIL",
+        "RETRY",
+        "REPLAN",
+        "BLOCKED"
+      ]
+    },
+    "failure_class": {
+      "enum": [
+        "TEST_FAILURE",
+        "TRANSIENT_FAILURE",
+        "ENVIRONMENT_FAILURE",
+        "POLICY_VIOLATION",
+        "PLANNING_FAILURE",
+        "SPECIFICATION_FAILURE"
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 1
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "allowed": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+          },
+          "minItems": 1
+        },
+        "forbidden": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "allowed",
+        "forbidden"
+      ],
+      "additionalProperties": false
+    },
+    "remaining_attempts": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "remaining_budget": {
+      "type": "object",
+      "properties": {
+        "max_cost": {
+          "type": "number",
+          "minimum": 0
+        },
+        "max_tokens": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "max_cost",
+        "max_tokens"
+      ],
+      "additionalProperties": false
+    },
+    "next_action": {
+      "enum": [
+        "CORRECT",
+        "REPLAN"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "unit_id",
+    "verdict",
+    "failure_class",
+    "reason",
+    "evidence",
+    "scope",
+    "remaining_attempts",
+    "remaining_budget",
+    "next_action"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lgo.local/contracts/1.0/correction_request.schema.json",
+  "title": "correction_request"
+}

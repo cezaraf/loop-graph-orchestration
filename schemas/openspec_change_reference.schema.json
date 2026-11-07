@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "change_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "root": {
+      "type": "string",
+      "minLength": 1
+    },
+    "schema": {
+      "const": "spec-driven"
+    },
+    "openspec_version": {
+      "const": "1.16.1"
+    },
+    "spec_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "change_id",
+    "root",
+    "schema",
+    "openspec_version",
+    "spec_hash"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lgo.local/contracts/1.0/openspec_change_reference.schema.json",
+  "title": "openspec_change_reference"
+}

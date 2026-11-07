@@ -1,0 +1,116 @@
+{
+  "valid": {
+    "schema_version": "1.0",
+    "id": "example",
+    "graph": {
+      "schema_version": "1.0",
+      "change_id": "example",
+      "spec_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "units": [
+        {
+          "id": "example",
+          "objective": "example",
+          "task_id": "example",
+          "requirement_ids": [
+            "example"
+          ],
+          "inputs": [],
+          "outputs": [],
+          "dependencies": [],
+          "resources": [],
+          "file_scope": [
+            "example"
+          ],
+          "acceptance": [
+            "example"
+          ],
+          "verifiers": [
+            {
+              "kind": "command",
+              "command": "example"
+            }
+          ],
+          "agent": {
+            "adapter": "example"
+          },
+          "risk": "LOW",
+          "timeout_seconds": 1,
+          "budget": {
+            "max_cost": 0,
+            "max_tokens": 0
+          },
+          "max_attempts": 1
+        }
+      ],
+      "integration_verifiers": []
+    },
+    "graph_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "policy_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+    "state": "PENDING",
+    "nodes": {},
+    "created_at": 0,
+    "workspace": "example",
+    "integration": {
+      "passed": false
+    },
+    "gates": []
+  },
+  "invalid": {
+    "schema_version": "99.0",
+    "id": "example",
+    "graph": {
+      "schema_version": "1.0",
+      "change_id": "example",
+      "spec_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "units": [
+        {
+          "id": "example",
+          "objective": "example",
+          "task_id": "example",
+          "requirement_ids": [
+            "example"
+          ],
+          "inputs": [],
+          "outputs": [],
+          "dependencies": [],
+          "resources": [],
+          "file_scope": [
+            "example"
+          ],
+          "acceptance": [
+            "example"
+          ],
+          "verifiers": [
+            {
+              "kind": "command",
+              "command": "example"
+            }
+          ],
+          "agent": {
+            "adapter": "example"
+          },
+          "risk": "LOW",
+          "timeout_seconds": 1,
+          "budget": {
+            "max_cost": 0,
+            "max_tokens": 0
+          },
+          "max_attempts": 1
+        }
+      ],
+      "integration_verifiers": []
+    },
+    "graph_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "policy_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "source_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+    "state": "PENDING",
+    "nodes": {},
+    "created_at": 0,
+    "workspace": "example",
+    "integration": {
+      "passed": false
+    },
+    "gates": []
+  }
+}

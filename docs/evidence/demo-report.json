@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.0",
+  "run_id": "run-2a4fd1ae394148be",
+  "metrics": {
+    "schema_version": "1.0",
+    "run_id": "run-2a4fd1ae394148be",
+    "state": "ACCEPTED",
+    "worker_span_wall_seconds": 2.4860668182373047,
+    "run_elapsed_seconds": 3.918606758117676,
+    "worker_seconds": 3.243161678314209,
+    "peak_workers": 3,
+    "critical_path": [
+      "backend",
+      "security",
+      "integration"
+    ],
+    "critical_path_worker_seconds": 2.3791871070861816,
+    "bottlenecks": [
+      "backend",
+      "integration",
+      "frontend"
+    ],
+    "first_attempt_pass_rate": 0.8,
+    "attempts": {
+      "backend": 2,
+      "contract": 1,
+      "frontend": 1,
+      "integration": 1,
+      "security": 1
+    },
+    "corrections": 1,
+    "replans": 0,
+    "invalidations": 0,
+    "human_interventions_required": 0,
+    "validated_independent_units_preserved": 2,
+    "avoided_cost_estimate": null,
+    "adapter_reported_cost": 0,
+    "adapter_reported_tokens": 0,
+    "cost_source": "mock fixtures",
+    "integration_passed": true,
+    "queue_wait_seconds": {
+      "backend": 0.0012981891632080078,
+      "contract": 0.0013663768768310547,
+      "frontend": 0.0013189315795898438,
+      "integration": 0.0021457672119140625,
+      "security": 0.014599084854125977
+    },
+    "failure_classes": [
+      "TEST_FAILURE"
+    ],
+    "learning_events": 1
+  },
+  "verified_recovery": {
+    "before": {
+      "backend": 2,
+      "contract": 1,
+      "frontend": 1
+    },
+    "after": {
+      "backend": 2,
+      "contract": 1,
+      "frontend": 1
+    }
+  },
+  "corrections": [
+    {
+      "attempt": 1,
+      "feedback": {
+        "evidence": [
+          {
+            "duration_seconds": 0.322406530380249,
+            "evidence": {
+              "command": "backend",
+              "exit_code": 1,
+              "stderr": "Exception in thread \"main\" java.lang.AssertionError: Expected HTTP 404 Actual HTTP 200\n\tat PolicyCheck.main(PolicyCheck.java:1)\n{\"verdict\": \"FAIL\", \"oracle\": \"backend\", \"reason\": \"Command '['java', '-cp', '/tmp/tmpe25cqgd9', 'PolicyCheck']' returned non-zero exit status 1.\"}\n",
+              "stdout": ""
+            },
+            "failure_class": "TEST_FAILURE",
+            "kind": "command",
+            "passed": false,
+            "schema_version": "1.0"
+          }
+        ],
+        "failure_class": "TEST_FAILURE",
+        "next_action": "CORRECT",
+        "reason": "[{\"duration_seconds\":0.322406530380249,\"evidence\":{\"command\":\"backend\",\"exit_code\":1,\"stderr\":\"Exception in thread \\\"main\\\" java.lang.AssertionError: Expected HTTP 404 Actual HTTP 200\\n\\tat PolicyCheck.main(PolicyCheck.java:1)\\n{\\\"verdict\\\": \\\"FAIL\\\", \\\"oracle\\\": \\\"backend\\\", \\\"reason\\\": \\\"Command '['java', '-cp', '/tmp/tmpe25cqgd9', 'PolicyCheck']' returned non-zero exit status 1.\\\"}\\n\",\"stdout\":\"\"},\"failure_class\":\"TEST_FAILURE\",\"kind\":\"command\",\"passed\":false,\"schema_version\":\"1.0\"}]",
+        "remaining_attempts": 2,
+        "remaining_budget": {
+          "max_cost": 1,
+          "max_tokens": 10000
+        },
+        "schema_version": "1.0",
+        "scope": {
+          "allowed": [
+            "backend/**"
+          ],
+          "forbidden": [
+            ".lgo/**",
+            "openspec/**",
+            "verification/**",
+            ".git/**"
+          ]
+        },
+        "unit_id": "backend",
+        "verdict": "FAIL"
+      },
+      "kind": "correction",
+      "run_id": "run-2a4fd1ae394148be",
+      "schema_version": "1.0",
+      "timestamp": 1794020236.4261756,
+      "unit": "backend"
+    }
+  ],
+  "risk_gate": [
+    {
+      "schema_version": "1.0",
+      "verdict": "HUMAN_APPROVAL_REQUIRED",
+      "reason": "External authority approval required",
+      "unit": "contract",
+      "evidence": [],
+      "policy": "blast-radius",
+      "next_action": "obtain signed approval from operator/service",
+      "approval_request": {
+        "binding": "0dd785fcebe9e3ae3e5fb1a464b969b6ff05eff83ea9e764546ad45a21870748",
+        "action": "execute",
+        "run_id": "run-53008e05b1d64ac0",
+        "unit": "contract"
+      }
+    }
+  ],
+  "archive_preparation": {
+    "change": "add-tipo-exame",
+    "ready": false,
+    "blockers": [
+      "AUTHORITY_GATE_NOT_PASSED"
+    ],
+    "operations": [
+      "Use official openspec-sync-specs skill to synchronize only, or archive command to synchronize and archive"
+    ],
+    "archive_argv": [
+      "openspec",
+      "archive",
+      "add-tipo-exame"
+    ],
+    "executed": false,
+    "authority_gate": {
+      "schema_version": "1.0",
+      "verdict": "HUMAN_APPROVAL_REQUIRED",
+      "reason": "External authority approval required",
+      "unit": null,
+      "evidence": [],
+      "policy": "blast-radius",
+      "next_action": "obtain signed approval from operator/service",
+      "approval_request": {
+        "binding": "34a9a5e7483dbeda6b16b539e35bedc6aece9dd912133ee198d90a4165de1874",
+        "action": "archive",
+        "run_id": "run-2a4fd1ae394148be",
+        "unit": null
+      }
+    },
+    "delivery": {
+      "integrated_into_consumer": false,
+      "mismatched_paths": [
+        "contract/openapi.json",
+        "frontend/angular.json",
+        "frontend/package.json",
+        "frontend/proxy.conf.json",
+        "frontend/src/app.component.ts",
+        "frontend/src/index.html",
+        "frontend/src/main.ts",
+        "frontend/src/styles.css",
+        "frontend/tsconfig.app.json",
+        "frontend/tsconfig.json",
+        "backend/pom.xml",
+        "backend/src/main/java/dev/lgo/example/ApiAdvice.java",
+        "backend/src/main/java/dev/lgo/example/Application.java",
+        "backend/src/main/java/dev/lgo/example/NotFoundPolicy.java",
+        "backend/src/main/java/dev/lgo/example/TipoExame.java",
+        "backend/src/main/java/dev/lgo/example/TipoExameController.java",
+        "backend/src/main/java/dev/lgo/example/TipoExameRepository.java",
+        "backend/src/main/java/dev/lgo/example/TipoExameService.java",
+        "backend/src/main/resources/application.properties",
+        "reports/security.json",
+        "integration/ready.json"
+      ],
+      "workspace": "/workspace/scratch/b73967659d38/demo-release/consumer/.lgo/runs/run-2a4fd1ae394148be/workspace"
+    }
+  },
+  "progress_sync": {
+    "change": "add-tipo-exame",
+    "accepted_task_ids": [],
+    "updated": [
+      "openspec/changes/add-tipo-exame/tasks.md"
+    ]
+  },
+  "learning": {
+    "candidates": [
+      {
+        "schema_version": "1.0",
+        "id": "learning-d8d01862d120",
+        "finding": "A localized verification failure was corrected without rerunning independent passed units.",
+        "root_cause": "An implementation violated an external acceptance oracle.",
+        "kind": "resource_constraint",
+        "category": "Constraint",
+        "target": "graph-planner",
+        "status": "PROPOSED",
+        "version": 1,
+        "constraint": {
+          "scope": "backend/**",
+          "resource": "contract-review-63a1d3d9"
+        },
+        "evidence": {
+          "run_id": "run-2a4fd1ae394148be",
+          "evidence_digest": "6591a6467821f3fb167e1a41b66e509fa56435017ace628cb2e6e2161695a5db",
+          "corrections": 1
+        },
+        "applicability": "Only projects with backend/** and the same oracle family; proposed serialization is a conservative experiment, not a proven causal fix.",
+        "regressions": [],
+        "revoked": false
+      }
+    ],
+    "promotion": "NOT_AUTHORIZED",
+    "what_if_only": true,
+    "preview_resources": {
+      "contract": [],
+      "backend": [
+        "contract-review-63a1d3d9"
+      ],
+      "frontend": [],
+      "security": [],
+      "integration": []
+    }
+  },
+  "consumer_project": "/workspace/scratch/b73967659d38/demo-release/consumer",
+  "workspace": "/workspace/scratch/b73967659d38/demo-release/consumer/.lgo/runs/run-2a4fd1ae394148be/workspace",
+  "limits": [
+    "Mock adapters; no LLM use or token/cost measurement",
+    "Offline graph oracles; real Maven/Angular validation is recorded separately",
+    "No consumer integration, spec sync or archive without external authority",
+    "Learning preview is not an approved global rule"
+  ]
+}

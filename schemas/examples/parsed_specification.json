@@ -1,0 +1,32 @@
+{
+  "valid": {
+    "schema_version": "1.0",
+    "id": "example",
+    "schema": "spec-driven",
+    "openspec_version": "1.16.1",
+    "metadata": {},
+    "tasks": [],
+    "requirements": [],
+    "capabilities": [],
+    "artifacts": {},
+    "spec_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "planning_status": {},
+    "proposal": "example",
+    "design": "example"
+  },
+  "invalid": {
+    "schema_version": "99.0",
+    "id": "example",
+    "schema": "spec-driven",
+    "openspec_version": "1.16.1",
+    "metadata": {},
+    "tasks": [],
+    "requirements": [],
+    "capabilities": [],
+    "artifacts": {},
+    "spec_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "planning_status": {},
+    "proposal": "example",
+    "design": "example"
+  }
+}

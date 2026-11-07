@@ -1,0 +1,35 @@
+name: LGO reference checks
+on:
+  workflow_dispatch:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  reference:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - run: pip install -r requirements.lock && pip install -e . --no-deps
+      - run: npm ci --ignore-scripts
+      - run: ruff check lgo tests scripts && ruff format --check lgo tests scripts
+      - run: pytest -q --junitxml=pytest.xml
+        env:
+          LGO_OPENSPEC: ${{ github.workspace }}/node_modules/.bin/openspec
+      - run: python scripts/eval.py --output eval-report.json
+      - run: python scripts/demo.py --output demo-ci
+        env:
+          LGO_OPENSPEC: ${{ github.workspace }}/node_modules/.bin/openspec
+      - run: mvn -B test
+        working-directory: examples/tipo-exame/backend
+      - run: npm ci && npm run build
+        working-directory: examples/tipo-exame/frontend

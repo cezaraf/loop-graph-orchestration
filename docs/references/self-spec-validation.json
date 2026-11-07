@@ -1,0 +1,306 @@
+{
+  "openspec_version": "1.16.1",
+  "observed_at": "2026-11-06",
+  "results": [
+    {
+      "command": [
+        "openspec",
+        "validate",
+        "build-lgo",
+        "--strict",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": {
+        "items": [
+          {
+            "id": "build-lgo",
+            "type": "change",
+            "valid": true,
+            "issues": [],
+            "durationMs": 16
+          }
+        ],
+        "summary": {
+          "totals": {
+            "items": 1,
+            "passed": 1,
+            "failed": 0
+          },
+          "byType": {
+            "change": {
+              "items": 1,
+              "passed": 1,
+              "failed": 0
+            }
+          }
+        },
+        "version": "1.0",
+        "root": {
+          "path": "/workspace/scratch/b73967659d38/lgo",
+          "source": "nearest"
+        }
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "openspec",
+        "status",
+        "--change",
+        "build-lgo",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": {
+        "changeName": "build-lgo",
+        "schemaName": "spec-driven",
+        "planningHome": {
+          "kind": "repo",
+          "root": "/workspace/scratch/b73967659d38/lgo",
+          "changesDir": "/workspace/scratch/b73967659d38/lgo/openspec/changes",
+          "defaultSchema": "spec-driven"
+        },
+        "changeRoot": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo",
+        "artifactPaths": {
+          "proposal": {
+            "outputPath": "proposal.md",
+            "resolvedOutputPath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/proposal.md",
+            "existingOutputPaths": [
+              "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/proposal.md"
+            ]
+          },
+          "specs": {
+            "outputPath": "specs/**/*.md",
+            "resolvedOutputPath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/specs/**/*.md",
+            "existingOutputPaths": [
+              "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/specs/agent-orchestration/spec.md"
+            ]
+          },
+          "design": {
+            "outputPath": "design.md",
+            "resolvedOutputPath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/design.md",
+            "existingOutputPaths": [
+              "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/design.md"
+            ]
+          },
+          "tasks": {
+            "outputPath": "tasks.md",
+            "resolvedOutputPath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "existingOutputPaths": [
+              "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md"
+            ]
+          }
+        },
+        "isPlanningComplete": true,
+        "isComplete": true,
+        "applyRequires": [
+          "tasks"
+        ],
+        "nextSteps": [
+          "All planning artifacts are complete. Run openspec instructions apply --change \"build-lgo\" --json to inspect implementation progress."
+        ],
+        "actionContext": {
+          "mode": "repo-local",
+          "sourceOfTruth": "repo",
+          "planningArtifacts": [
+            "proposal",
+            "specs",
+            "design",
+            "tasks"
+          ],
+          "linkedContext": [],
+          "allowedEditRoots": [
+            "/workspace/scratch/b73967659d38/lgo"
+          ],
+          "requiresAffectedAreaSelection": false,
+          "constraints": [
+            "Repo-local change artifacts and implementation edits are scoped to this project."
+          ]
+        },
+        "artifacts": [
+          {
+            "id": "proposal",
+            "outputPath": "proposal.md",
+            "status": "done",
+            "requires": []
+          },
+          {
+            "id": "specs",
+            "outputPath": "specs/**/*.md",
+            "status": "done",
+            "requires": [
+              "proposal"
+            ]
+          },
+          {
+            "id": "design",
+            "outputPath": "design.md",
+            "status": "done",
+            "requires": [
+              "proposal"
+            ]
+          },
+          {
+            "id": "tasks",
+            "outputPath": "tasks.md",
+            "status": "done",
+            "requires": [
+              "specs",
+              "design"
+            ]
+          }
+        ],
+        "root": {
+          "path": "/workspace/scratch/b73967659d38/lgo",
+          "source": "nearest"
+        }
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "openspec",
+        "instructions",
+        "apply",
+        "--change",
+        "build-lgo",
+        "--json"
+      ],
+      "exit_code": 0,
+      "stdout": {
+        "changeName": "build-lgo",
+        "changeDir": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo",
+        "schemaName": "spec-driven",
+        "contextFiles": {
+          "proposal": [
+            "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/proposal.md"
+          ],
+          "specs": [
+            "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/specs/agent-orchestration/spec.md"
+          ],
+          "design": [
+            "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/design.md"
+          ],
+          "tasks": [
+            "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md"
+          ]
+        },
+        "progress": {
+          "total": 14,
+          "complete": 0,
+          "remaining": 14
+        },
+        "tasks": [
+          {
+            "id": "1",
+            "description": "1.1 Definir contratos JSON versionados e fixtures válidas/inválidas",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 3
+          },
+          {
+            "id": "2",
+            "description": "1.2 Integrar leitura e validação pública do OpenSpec",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 4
+          },
+          {
+            "id": "3",
+            "description": "1.3 Definir bindings rastreáveis e validação do grafo",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 5
+          },
+          {
+            "id": "4",
+            "description": "2.1 Implementar store transacional e recuperação de checkpoints",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 9
+          },
+          {
+            "id": "5",
+            "description": "2.2 Implementar adapter mock e fronteira de patches/escopo",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 10
+          },
+          {
+            "id": "6",
+            "description": "2.3 Implementar verificadores externos e loop de correção",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 11
+          },
+          {
+            "id": "7",
+            "description": "2.4 Implementar scheduler paralelo, dependências e recursos",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 12
+          },
+          {
+            "id": "8",
+            "description": "2.5 Implementar merge, invalidação e gates de autoridade",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 13
+          },
+          {
+            "id": "9",
+            "description": "3.1 Sincronizar progresso comprovado e preparar archive com gates",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 17
+          },
+          {
+            "id": "10",
+            "description": "3.2 Implementar candidatos de aprendizado e aplicação controlada",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 18
+          },
+          {
+            "id": "11",
+            "description": "3.3 Implementar CLI, observabilidade e relatórios",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 19
+          },
+          {
+            "id": "12",
+            "description": "4.1 Criar exemplo TipoExame com OpenSpec, Java/Spring e Angular/PrimeNG",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 23
+          },
+          {
+            "id": "13",
+            "description": "4.2 Executar testes positivos/negativos e demonstração de correção/retomada",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 24
+          },
+          {
+            "id": "14",
+            "description": "4.3 Documentar instalação, arquitetura, extensões, segurança e limites",
+            "done": false,
+            "sourcePath": "/workspace/scratch/b73967659d38/lgo/openspec/changes/build-lgo/tasks.md",
+            "line": 25
+          }
+        ],
+        "taskTrackingConfigured": true,
+        "state": "ready",
+        "instruction": "Read context files, work through pending tasks, mark complete as you go.\nPause if you hit blockers or need clarification.",
+        "context": "Projeto LGO: runtime local de engenharia agêntica em Python.\nO OpenSpec é a fonte de verdade de comportamento; o LGO mantém execução em .lgo/.\nCompor a CLI pública; não clonar o OpenSpec nem depender de SDK proprietário.\nDocumentação em português brasileiro. Evidência executada distingue PASS de BLOCKED.\n",
+        "root": {
+          "path": "/workspace/scratch/b73967659d38/lgo",
+          "source": "nearest"
+        }
+      },
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "attempt": 2,
+  "verification": {
+    "passed": true,
+    "results": [
+      {
+        "schema_version": "1.0",
+        "kind": "command",
+        "passed": true,
+        "failure_class": null,
+        "evidence": {
+          "exit_code": 0,
+          "stdout": "HTTP 404 policy PASS\nbackend source and executable Java policy PASS; full Spring tests separate\n",
+          "stderr": "",
+          "command": "backend"
+        },
+        "duration_seconds": 0.3260009288787842
+      }
+    ]
+  },
+  "patch_hash": "24d366358dbad2c97e5ab692b364a96636b6bd45c826566c6ffe4083bf59e209",
+  "duration_seconds": 0.43263912200927734,
+  "usage": {
+    "cost": 0,
+    "tokens": 0
+  }
+}

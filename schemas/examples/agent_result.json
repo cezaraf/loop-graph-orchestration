@@ -1,0 +1,22 @@
+{
+  "valid": {
+    "schema_version": "1.0",
+    "files": {},
+    "usage": {
+      "cost": 0,
+      "tokens": 0
+    },
+    "summary": "example",
+    "idempotency_key": "example"
+  },
+  "invalid": {
+    "schema_version": "99.0",
+    "files": {},
+    "usage": {
+      "cost": 0,
+      "tokens": 0
+    },
+    "summary": "example",
+    "idempotency_key": "example"
+  }
+}

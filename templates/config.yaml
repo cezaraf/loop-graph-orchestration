@@ -1,0 +1,12 @@
+schema_version: '1.0'
+concurrency: 3
+max_patch_bytes: 1048576
+allow_process_agents: false
+retention_days: 30
+# Freeze preexisting oracle fixtures used by trusted commands.
+protected_paths: [verification/**]
+commands:
+  unit-tests:
+    argv: [python3, verification/unit_tests.py]
+    timeout_seconds: 60
+    write_scope: []

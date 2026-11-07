@@ -1,0 +1,150 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "TipoExame",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/tipos-exame": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Lista",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TipoExame"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TipoExame"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TipoExame"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Dados inválidos"
+          },
+          "409": {
+            "description": "Código duplicado"
+          }
+        }
+      }
+    },
+    "/api/tipos-exame/{codigo}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "codigo",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TipoExame"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Inexistente"
+          }
+        }
+      },
+      "put": {
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TipoExame"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Atualizado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TipoExame"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Inexistente"
+          },
+          "400": {
+            "description": "Dados inválidos"
+          }
+        }
+      },
+      "delete": {
+        "responses": {
+          "204": {
+            "description": "Excluído"
+          },
+          "404": {
+            "description": "Inexistente"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TipoExame": {
+        "type": "object",
+        "required": [
+          "codigo",
+          "nome"
+        ],
+        "properties": {
+          "codigo": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 30
+          },
+          "nome": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          }
+        }
+      }
+    }
+  }
+}

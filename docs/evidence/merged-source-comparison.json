@@ -1,0 +1,26 @@
+{
+  "all_equal": true,
+  "files": {
+    "contract/openapi.json": true,
+    "backend/pom.xml": true,
+    "backend/src/main/resources/application.properties": true,
+    "backend/src/main/java/dev/lgo/example/ApiAdvice.java": true,
+    "backend/src/main/java/dev/lgo/example/TipoExameRepository.java": true,
+    "backend/src/main/java/dev/lgo/example/Application.java": true,
+    "backend/src/main/java/dev/lgo/example/TipoExame.java": true,
+    "backend/src/main/java/dev/lgo/example/NotFoundPolicy.java": true,
+    "backend/src/main/java/dev/lgo/example/TipoExameService.java": true,
+    "backend/src/main/java/dev/lgo/example/TipoExameController.java": true,
+    "backend/src/test/java/dev/lgo/example/TipoExameIntegrationTest.java": true,
+    "backend/src/test/resources/mockito-extensions/org.mockito.plugins.MockMaker": true,
+    "frontend/package.json": true,
+    "frontend/tsconfig.app.json": true,
+    "frontend/tsconfig.json": true,
+    "frontend/proxy.conf.json": true,
+    "frontend/angular.json": true,
+    "frontend/src/styles.css": true,
+    "frontend/src/app.component.ts": true,
+    "frontend/src/index.html": true,
+    "frontend/src/main.ts": true
+  }
+}

@@ -1,0 +1,18 @@
+schema_version: '1.0'
+concurrency: 3
+commands:
+  backend:
+    argv: [python3, verification/check.py, backend]
+    timeout_seconds: 30
+  frontend:
+    argv: [python3, verification/check.py, frontend]
+    timeout_seconds: 30
+  contract:
+    argv: [python3, verification/check.py, contract]
+    timeout_seconds: 30
+  security:
+    argv: [python3, verification/check.py, security]
+    timeout_seconds: 30
+  integration:
+    argv: [python3, verification/check.py, integration]
+    timeout_seconds: 30

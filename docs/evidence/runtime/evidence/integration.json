@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "schema_version": "1.0",
+      "kind": "command",
+      "passed": true,
+      "failure_class": null,
+      "evidence": {
+        "exit_code": 0,
+        "stdout": "HTTP 404 policy PASS\nOpenAPI deterministic contract PASS\nbackend source and executable Java policy PASS; full Spring tests separate\nfrontend source architecture PASS; browser E2E separate\nsecurity and architecture source checks PASS; unauthenticated loopback demo only\noffline composite integration PASS; HTTP Spring/browser test suites remain distinct\n",
+        "stderr": "",
+        "command": "integration"
+      },
+      "duration_seconds": 0.3292410373687744
+    }
+  ]
+}

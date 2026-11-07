@@ -1,0 +1,16 @@
+{
+  "valid": {
+    "schema_version": "1.0",
+    "binding": "0000000000000000000000000000000000000000000000000000000000000000",
+    "action": "example",
+    "run_id": "example",
+    "unit": "example"
+  },
+  "invalid": {
+    "schema_version": "99.0",
+    "binding": "0000000000000000000000000000000000000000000000000000000000000000",
+    "action": "example",
+    "run_id": "example",
+    "unit": "example"
+  }
+}
