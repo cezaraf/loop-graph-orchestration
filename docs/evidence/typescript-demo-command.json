@@ -1,0 +1,13 @@
+{
+  "run_id": "run-fde4368eaff74be7",
+  "state": "ACCEPTED",
+  "peak_workers": 3,
+  "attempts": {
+    "backend": 2,
+    "contract": 1,
+    "frontend": 1,
+    "integration": 1,
+    "security": 1
+  },
+  "report": "/workspace/scratch/b73967659d38/demo-ts-release/demo-report.json"
+}

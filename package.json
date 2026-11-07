@@ -1,8 +1,50 @@
 {
-  "name": "lgo-dev-tools",
-  "version": "0.1.0",
-  "private": true,
-  "description": "Pinned official OpenSpec for LGO interoperability checks",
-  "engines": {"node": ">=22.12.0"},
-  "devDependencies": {"@fission-ai/openspec": "1.16.1"}
+  "name": "@cezaraf/lgo",
+  "version": "0.2.0",
+  "description": "OpenSpec + Loop + Graph: evidence-driven agent orchestration",
+  "type": "module",
+  "engines": {
+    "node": ">=24.22.1 <25"
+  },
+  "bin": {
+    "lgo": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "schemas",
+    "templates",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.tests.json --noEmit",
+    "test": "npm run build && node --test --test-concurrency=1 tests/*.test.ts",
+    "demo": "npm run build && node scripts/demo.mjs",
+    "eval": "npm run build && node scripts/eval.mjs",
+    "prepack": "npm run build",
+    "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\" \"scripts/*.mjs\" \"examples/tipo-exame/verification/*.mjs\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"tests/**/*.ts\" \"scripts/*.mjs\" \"examples/tipo-exame/verification/*.mjs\""
+  },
+  "dependencies": {
+    "ajv": "8.20.0",
+    "yaml": "2.9.1"
+  },
+  "devDependencies": {
+    "@fission-ai/openspec": "1.16.1",
+    "@types/node": "24.10.1",
+    "prettier": "3.9.10",
+    "typescript": "5.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cezaraf/loop-graph-orchestration.git"
+  },
+  "license": "MIT"
 }

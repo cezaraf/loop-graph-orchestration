@@ -17,3 +17,8 @@ target/
 
 /distributions/
 /docs/evidence/runtime/*.sqlite
+# TypeScript runtime build/cache
+coverage/
+*.tgz
+/lgo-demo*/
+/docs/evidence/typescript/*.sqlite

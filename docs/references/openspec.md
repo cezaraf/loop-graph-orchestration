@@ -59,4 +59,4 @@ A escrita de progresso é a única adaptação textual: usa `sourcePath` e `line
 
 ## Evidência executada
 
-`tests/test_openspec.py` cria mudanças nativas temporárias e executa a CLI real. Verifica leitura estruturada, cenários, tasks localizadas, validação negativa, progresso sem corrupção, hash estável após sincronização, bloqueio de arquivamento por políticas LGO, defesa contra caminhos/symlinks e recusa de versão incompatível. Os contratos públicos adicionais estão em `schemas/`; seus exemplos e testes não pretendem substituir os schemas internos do OpenSpec.
+`tests/openspec.test.ts` cria mudanças nativas temporárias e executa a CLI real. Verifica leitura estruturada, cenários, tasks localizadas, validação negativa, progresso sem corrupção, hash estável após sincronização, bloqueio de arquivamento por políticas LGO, defesa contra caminhos/symlinks e recusa de versão incompatível. Os contratos públicos adicionais estão em `schemas/`; seus exemplos e testes não pretendem substituir os schemas internos do OpenSpec.

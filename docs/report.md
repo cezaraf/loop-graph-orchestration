@@ -1,3 +1,5 @@
+> Relatório histórico da versão Python0.1, preservado como evidência. Para a versão atual consulte [a migração TypeScript](typescript-migration.md). Os nomes de testes Python abaixo pertencem ao [commit949ce3b](https://github.com/cezaraf/loop-graph-orchestration/tree/949ce3bd4190145c6914f86f21b3491885249ae9).
+
 # Relatório de execução — LGO 0.1
 
 A implementação executou OpenSpec → plano validado → workers paralelos → correção localizada → integração → gates → candidato a aprendizado, com persistência e retomada. O resultado é uma referência local funcional. As limitações de produção estão separadas dos resultados verificados.

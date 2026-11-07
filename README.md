@@ -1,107 +1,121 @@
 # LGO — Loop & Graph Orchestration
 
-Framework local de referência para engenharia agêntica com **OpenSpec + grafos executáveis + loops verificados**. Implementação Python independente de modelo, fornecedor e harness, com CLI, persistência SQLite, contratos JSON Schema e demonstração Java/Spring + Angular/PrimeNG.
+Framework local de engenharia agêntica com **OpenSpec + grafo executável + loops verificados**, implementado em **TypeScript strict/Node.js**. Mantém CLI, contratos JSON Schema, SQLite, gates de autoridade, aprendizado controlado e exemplo Java/Spring + Angular/PrimeNG.
 
-**OpenSpec define o comportamento; Graph agenda; Loop verifica e corrige; Gate controla autoridade; Learning propõe melhorias.**
+**OpenSpec define; Graph agenda; Loop verifica; Gate autoriza; Learning propõe melhorias.**
 
-Esta versão 0.1 funciona com agentes mock sem credenciais. Processos CLI e endpoints HTTP podem implementar o mesmo contrato de patches. Os wrappers específicos Codex/Claude/OpenCode e ACP estão no roadmap. Um endpoint de modelo OpenAI-compatible precisa de um harness de ferramentas para executar engenharia; ele não é tratado como agente de programação por si só.
+Versão0.2 migra o runtime Python0.1. A instalação, a execução, a suíte e a demonstração não exigem Python. Aplicações consumidoras podem continuar usando qualquer linguagem em seus próprios comandos de build/teste. Mocks funcionam sem credenciais; processos CLI e harnesses HTTP implementam o mesmo contrato de patches.
 
-## Começar
+## Instalar e executar
 
-Ambiente validado: Linux/POSIX, Python 3.12, Node 24, OpenSpec **1.16.1**, Java 17. O pacote requer Python 3.11+ e o OpenSpec npm requer Node 22.12+. Outras plataformas ainda precisam de validação; o lock do scheduler utiliza `fcntl`.
+Ambiente validado: Linux/POSIX, **Node24.22.1** e npm11. Java17/JDK é necessário para o oracle executável da demo. O núcleo e os testes de scheduler não precisam de Java. A versão Node suportada está em `.nvmrc` e `package.json`.
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.lock
-pip install -e . --no-deps
 npm ci --ignore-scripts
-export LGO_OPENSPEC="$PWD/node_modules/.bin/openspec"
-lgo --help
-pytest -q
-python scripts/eval.py
-python scripts/demo.py --output ./demo-output
+npm run build
+npm run typecheck
+npm test
+npm run format:check
+node scripts/eval.mjs
+node scripts/demo.mjs --output ./lgo-demo
+node dist/cli.js --help
 ```
 
-Use um diretório de saída novo a cada demonstração. A demo precisa de um JDK com o módulo `jdk.compiler`; Maven e downloads de dependências Java/Angular não são necessários para seus verificadores offline. A reprodução dos testes Spring completos e do build Angular exige Maven/npm e acesso aos respectivos registries.
+Use um diretório de saída novo em cada demo. `npm test` usa o test runner do Node e testes TypeScript; não requer pytest, venv ou SDK proprietário.
 
-A execução escreve `demo-output/demo-report.json`, checkpoints, evidências, Mermaid e um workspace integrado. Ela gera os arquivos da aplicação com mocks, executa três workers em paralelo, introduz HTTP 200 indevido, detecta o erro executando Java fora do agente, corrige para 404 e retoma sem repetir os resultados independentes. A suíte também mata um processo real com a execução em andamento e comprova a recuperação.
-
-O grafo de demonstração verifica Java/contrato/estrutura de forma offline. Os testes Spring/MockMvc/H2 e o build Angular foram executados separadamente, inclusive sobre uma cópia dos arquivos integrados pelo LGO: [relatório](docs/report.md). Não se apresenta análise textual como teste de navegador.
-
-## Usar em um projeto OpenSpec
-
-Inicialize o OpenSpec com sua CLI oficial e crie proposta, design, specs e tasks pelo workflow oficial. O LGO acrescenta apenas `.lgo/`.
+Para gerar e instalar o pacote operacional:
 
 ```bash
-lgo --root /caminho/projeto --dry-run init
-lgo --root /caminho/projeto init
-lgo --root /caminho/projeto inspect minha-mudanca
-lgo --root /caminho/projeto plan minha-mudanca --bindings .lgo/bindings/minha-mudanca.json
-lgo --root /caminho/projeto validate-plan minha-mudanca
-lgo --root /caminho/projeto graph minha-mudanca --format mermaid
-lgo --root /caminho/projeto --dry-run run minha-mudanca
-lgo --root /caminho/projeto run minha-mudanca
-lgo --root /caminho/projeto status minha-mudanca
+npm pack
+npm install -g ./cezaraf-lgo-0.2.0.tgz
+lgo --help
+```
+
+O tarball contém JavaScript compilado, declarações TypeScript, schemas e templates. A instalação só requer as dependências de produção `ajv` e `yaml`; não compila addons nativos. O registry npm não recebeu publicação. A demo e a aplicação completa fazem parte do repositório de código.
+
+## Usar com OpenSpec
+
+O OpenSpec permanece uma CLI separada, suportada explicitamente na versão **1.16.1**. O `npm ci` instala essa ferramenta de desenvolvimento. Para invocá-la fora dos scripts npm:
+
+```bash
+export LGO_OPENSPEC="$PWD/node_modules/.bin/openspec"
+node dist/cli.js --root /caminho/projeto --dry-run init
+node dist/cli.js --root /caminho/projeto init
+node dist/cli.js --root /caminho/projeto inspect minha-mudanca
+node dist/cli.js --root /caminho/projeto plan minha-mudanca --bindings /caminho/bindings.json
+node dist/cli.js --root /caminho/projeto validate-plan minha-mudanca
+node dist/cli.js --root /caminho/projeto run minha-mudanca
+node dist/cli.js --root /caminho/projeto status minha-mudanca
+node dist/cli.js --root /caminho/projeto resume run-ID
+node dist/cli.js --root /caminho/projeto verify run-ID
+node dist/cli.js --root /caminho/projeto learn run-ID
+```
+
+Com o tarball instalado, substitua `node dist/cli.js` por `lgo`. `--root`, `--json` e `--dry-run` são preservados. `graph --format mermaid|dot|json`, `report`, `explain`, `cancel`, `invalidate`, `replan`, `export`, `integrate`, `sync-progress` e `prepare-archive` continuam disponíveis.
+
+Bindings explícitos ligam tasks/requisitos oficiais a entradas, saídas, escopos, agentes e verificadores. O planner deriva dependências pelo consumo de artefatos e registra sua justificativa. A ordem/nome das tasks não determina dependências. Planejamento semântico completo a partir de intenção livre continua pendente.
+
+## Migrar checkpoints da versão Python
+
+Novas execuções criam SQLite operacional versão2. Contratos de mensagens e planos continuam em **1.0**. Um banco antigo não é retomado implicitamente.
+
+```bash
+# Pare o controlador Python primeiro.
+lgo --root /caminho/projeto migrate-state --from-python --dry-run
+lgo --root /caminho/projeto migrate-state --from-python
 lgo --root /caminho/projeto resume run-ID
 lgo --root /caminho/projeto verify run-ID
-lgo --root /caminho/projeto report run-ID
-lgo --root /caminho/projeto learn run-ID
-lgo --root /caminho/projeto prepare-archive minha-mudanca
 ```
 
-`--root`, `--json` e `--dry-run` são opções globais, antes do comando. Um caminho `--bindings` relativo é resolvido a partir do diretório de chamada; prefira absoluto quando usar `--root` externo.
+A migração verifica a cadeia de eventos, plano, política, especificações e hashes das saídas aprovadas. Antes de alterar registros, cria backup consistente em `.lgo/backups/`. Preserva unidades PASSED e suas tentativas; a integração e os gates exigem nova validação. Tokens de aprovação Python não autorizam o runtime TypeScript. Quando existe o lock antigo, a migração usa o utilitário POSIX `flock` para interoperar com `fcntl`. Execuções novas usam somente lease SQLite, sem esse helper.
 
-Bindings revisáveis ligam tasks/requisitos reais a entradas, saídas, escopos e oracles. O planner deriva dependências pelo consumo dos artefatos declarados e valida as edges explícitas. Não determina semântica de dependências pelo nome ou pela ordem das tasks. Geração autônoma desses bindings a partir de linguagem natural ainda não está implementada.
+Estados adulterados, fontes alteradas e versões desconhecidas bloqueiam a migração. Consulte [recuperação](docs/recovery.md) para reconciliar ou restaurar o backup.
 
-Exemplo completo: [TipoExame](examples/tipo-exame/README.md), [bindings](examples/tipo-exame/.lgo/bindings/add-tipo-exame.json) e [templates](templates/README.md). O runtime de referência trabalha com saídas materializadas em arquivos; efeitos externos precisam de adapters com reconciliação própria.
+## Evidências e demonstração
 
-## Autoridade e entrega
+A demo cria arquivos de aplicação com mocks, agenda três unidades em paralelo, introduz HTTP200 indevido, reprova executando Java externamente e corrige para404. Fecha/reabre o store e preserva as tentativas das unidades aprovadas. A suíte também mata um processo real com SIGKILL e comprova retomada pelo SQLite.
 
-O merge automático ocorre dentro do workspace da execução. Alterar o checkout consumidor é uma etapa separada, protegida:
+A demo valida Java/contrato/estrutura offline. Testes Spring/MockMvc/H2 e build Angular são verificações adicionais, identificadas separadamente nos relatórios. Nenhum oracle textual é apresentado como E2E de navegador.
+
+[Relatório da migração](docs/typescript-migration.md) · [Matriz de aceite](docs/acceptance.md) · [Cobertura dos testes](tests/README.md)
+
+## Autoridade
+
+O merge automático integra patches no workspace da execução. A entrega ao checkout consumidor exige decisão externa vinculada ao run, grafo, política, evidência e domínio do runtime:
 
 ```bash
 lgo --root /caminho/projeto export run-ID > patch-review.json
 lgo --root /caminho/projeto integrate run-ID > approval-request.json
-# Operador/serviço externo revisa e assina a decisão vinculada ao resultado.
-lgo --root /caminho/projeto integrate run-ID --approval approved-token.json
+# Operador revisa e assina a solicitação fora do worker.
+node scripts/sign-approval.mjs --key /fora/projeto/operator.key --project /caminho/projeto --request approval-request.json --output approved.json --actor operador
+lgo --root /caminho/projeto integrate run-ID --approval approved.json
 lgo --root /caminho/projeto sync-progress minha-mudanca
 lgo --root /caminho/projeto prepare-archive minha-mudanca --approval archive-token.json
 ```
 
-Sem aprovação, `integrate` retorna a solicitação e código 3; não aplica o patch. Assinaturas usam chave de autoridade com permissão 0600 fora do projeto, configurada por `LGO_AUTHORITY_KEY_FILE`. [scripts/sign_approval.py](scripts/sign_approval.py) é um assinador interativo do operador. A chave não entra no contrato do worker. HMAC comprova posse da chave operadora, **não identidade/presença humana**. Produção requer serviço de aprovação protegido e ambiente isolado.
+A chave HMAC de32bytes/0600 deve ficar fora do projeto e ser configurada no controlador com `LGO_AUTHORITY_KEY_FILE`. O assinador exige terminal interativo. HMAC comprova autoridade operadora, não identidade/presença humana. Produção requer serviço protegido e sandbox real.
 
-`sync-progress` só marca tasks cujas unidades passaram e cujas saídas correspondem ao checkout consumidor. O adapter usa IDs, caminhos e linhas oficiais, confere o hash da especificação e preserva o Markdown nativo. Checkboxes nunca substituem as evidências. `prepare-archive` exige qualidade, entrega e autoridade; prepara as operações oficiais sem executá-las. O LGO não implementa outro sincronizador de specs nem arquivador.
-
-A demo não assina aprovações reais, não entrega automaticamente ao consumidor e não arquiva. O aprendizado fica PROPOSED; sua consequência em um plano futuro é mostrada como hipótese. Promoção/revogação com autoridade e duas execuções validadas são exercitadas pela suíte com chave exclusiva de teste.
+`sync-progress` só marca tasks cujas unidades estão verificadas/integradas e cujas saídas correspondem ao consumidor. `prepare-archive` aplica gates adicionais e prepara operações oficiais; não substitui nem executa o sincronizador/arquivador OpenSpec. A demo não inventa aprovação real e mantém archive bloqueado. Aprendizado fica PROPOSED; a consequência futura é explicitamente um what-if. Promoção/revogação são testadas com autoridade exclusiva de fixture.
 
 ## Estrutura
 
-| Caminho | Conteúdo |
+| Caminho | Responsabilidade |
 | --- | --- |
-| `lgo/` | Planner, scheduler, workers/loops, adapters, verificadores, merge, gates, learning, state e CLI |
-| `schemas/` | 16 contratos 2020-12 e pares de exemplos válidos/inválidos |
-| `openspec/` | Especificação nativa da criação do LGO |
-| `templates/` | Configuração operacional para projetos consumidores |
-| `examples/tipo-exame/` | Aplicação, mudança OpenSpec, bindings e evidências de build/testes |
-| `tests/` | Testes positivos, negativos, concorrência, recuperação e autoridade |
-| `evals/` | Corpus determinístico de ataques e falhas controladas |
-| `scripts/` | Demo, evals e assinatura externa de referência |
-| `docs/` | Arquitetura, ADR, fontes, guias, relatório e matriz de aceite |
-
-O núcleo depende apenas de `jsonschema` e `PyYAML`; SQLite, processos e concorrência usam a biblioteca padrão. LangGraph e Temporal foram avaliados e não são dependências obrigatórias.
+| `src/` | API tipada, motor, scheduler/loops, adapters, OpenSpec, contratos, gates, SQLite, migração e CLI |
+| `schemas/` |16 contratos JSON Schema2020-12 e fixtures válidas/inválidas |
+| `tests/` | Suíte TypeScript, testes negativos e checkpoint real capturado da versão Python |
+| `scripts/` | Demo, evals e assinador externo em Node |
+| `templates/` | Configuração para projetos consumidores |
+| `examples/tipo-exame/` | Spring/Angular, OpenSpec, bindings e verificadores Node |
+| `openspec/` | Especificação do produto e da migração |
+| `docs/` | Arquitetura, ADRs, instalação, adapters, recuperação, segurança e evidências |
 
 ## Documentação e limites
 
-- [Arquitetura e comparação com OpenSpec nativo](docs/architecture.md)
-- [Decisão tecnológica](docs/adr/001-runtime.md) e [pesquisa](docs/references/research.md)
-- [Integração OpenSpec: versão, contratos e workflows reais](docs/references/openspec.md)
-- [Máquina de estados](docs/state-machine.md), [recuperação](docs/recovery.md), [segurança](docs/security.md)
-- [Instalação](docs/installation.md), [adapters](docs/adapters.md), [roadmap](docs/roadmap.md)
-- [Relatório medido](docs/report.md) e [critérios de conclusão](docs/acceptance.md)
+[Arquitetura](docs/architecture.md) · [ADR TypeScript](docs/adr/002-typescript-runtime.md) · [OpenSpec](docs/references/openspec.md) · [Adapters](docs/adapters.md) · [Segurança](docs/security.md) · [Roadmap](docs/roadmap.md)
 
-Os patches mock são delimitados pelo controlador. Processos CLI, comandos verificadores e endpoints HTTP são integrações confiáveis do operador; esta versão não oferece sandbox de SO ou isolamento de rede para código hostil. O histórico detecta corrupção por encadeamento de hashes, mas não resiste a um administrador capaz de reescrever banco e cadeia. Custos/tokens vêm de reports do adapter; mocks não medem consumo real de LLM.
+O runtime não oferece sandbox de SO/rede para processos hostis. Verificadores, processos CLI e endpoints HTTP exigem confiança no host. Aprovações SSO, wrappers específicos Codex/Claude/OpenCode, ACP/MCP e exportação OTLP continuam pendentes. Checkpoint/merge/worker são recuperáveis; interrupções durante replan/invalidation que deixem hashes divergentes bloqueiam para reconciliação. Não há exactly-once universal para efeitos externos.
 
-A retomada automática foi exercitada para workers, checkpoints e integração de patches. Uma interrupção durante replanejamento/invalidação que deixe divergência de hashes deve bloquear e exigir reconciliação; recuperação automática de todas as operações de controle ainda é uma evolução. Não há garantia universal de exactly-once para ferramentas externas. ACP, MCP, OTLP, SSO e execução distribuída não estão implementados nesta versão.
+O histórico encadeado detecta corrupção, mas não um administrador que reescreva banco e cadeia. Custos/tokens são reports do adapter; mocks não medem LLM. Logs históricos Python permanecem identificados como versão0.1.
 
-Licença MIT. Projeto independente: https://github.com/cezaraf/loop-graph-orchestration. As referências originais permanecem preservadas.
+Licença MIT. Projeto independente: https://github.com/cezaraf/loop-graph-orchestration. O OpenSpec original não foi modificado.

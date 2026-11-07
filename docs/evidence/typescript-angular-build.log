@@ -1,0 +1,22 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> tipo-exame-ui@1.0.0 build
+> ng build
+
+❯ Building...
+✔ Building...
+Initial chunk files | Names         |  Raw size | Estimated transfer size
+main.js             | main          | 747.76 kB |               128.25 kB
+chunk-PRJPGU5S.js   | -             | 149.66 kB |                43.23 kB
+polyfills.js        | polyfills     |  34.59 kB |                11.33 kB
+styles.css          | styles        | 149 bytes |               149 bytes
+
+                    | Initial total | 932.16 kB |               182.97 kB
+
+Lazy chunk files    | Names         |  Raw size | Estimated transfer size
+chunk-EUV3PURZ.js   | browser       |  64.21 kB |                17.17 kB
+
+Application bundle generation complete. [3.775 seconds] - 2026-11-07T04:19:23.023Z
+
+Output location: /workspace/scratch/b73967659d38/validation-typescript/frontend/dist
+

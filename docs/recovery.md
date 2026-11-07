@@ -1,34 +1,31 @@
-# Recuperação de execuções
+# Recuperação e migração de estado
 
-`resume` utiliza o checkpoint persistido, não reconstrói conclusão a partir de logs ou checkboxes. Preserve juntos o banco de estado, snapshots e evidências referenciadas. Execute um controlador por execução. Não mova arquivos durante uma retomada ativa.
+Checkpoints são registros SQLite e journals de merge; logs/checkboxes não reconstruem conclusão. Preserve banco, workspace, grafo e evidências juntos. Um lease SQLite com PID/nonce impede dois controladores. Após encerramento forçado, PID morto permite retomar; PID vivo/reutilizado bloqueia conservadoramente.
 
-## Procedimento
+```bash
+lgo --root /projeto status minha-mudanca
+lgo --root /projeto resume run-ID
+lgo --root /projeto verify run-ID
+```
 
-1. Consulte `lgo status <change>` e identifique o `run_id`.
-2. Confira a falha/interrupção e os artefatos de evidência. Resolva ambiente ausente sem alterar specs silenciosamente.
-3. Execute `lgo resume <run-id>` no mesmo projeto, com a mesma configuração e artifacts de origem.
-4. Observe unidades reaproveitadas e unidades retomadas. Uma unidade aceita e ainda válida deve manter sua contagem de tentativas.
-5. Execute `lgo verify <run-id>` para rever evidências/resultados conforme o contrato da CLI.
+Unidades PASSED mantêm suas tentativas quando plano, política, specs e hashes continuam válidos. Mock interrompido pode produzir novamente patches puros dentro do orçamento. Efeito externo não idempotente ambíguo bloqueia e exige reconciliação do provedor. Um adapter HTTP recebe AbortSignal, mas cancelamento da requisição não prova cancelamento do efeito remoto.
 
-Veja `lgo --help` para a posição da opção de diretório do projeto. A demonstração automatizada documenta a chamada exata e comprova preservação de resultados.
+## Migrar Python0.1
 
-## Decisões por situação
+1. Pare o controlador Python e preserve código/configuração.
+2. Instale LGO0.2 e rode `migrate-state --from-python --dry-run`.
+3. Corrija divergências sem editar hashes/evidências para fingir conclusão.
+4. Rode `migrate-state --from-python`. Um backup consistente precede mudanças de dados.
+5. Retome o mesmo run. Unidades aprovadas são preservadas, e integração/gates são revalidados.
 
-| Situação | Ação correta |
-| --- | --- |
-| Unidade nunca começou | Agendar quando dependências e recursos estiverem prontos |
-| Worker interrompido antes de produzir saída | Retomar com tentativa/limite persistidos; não chamar efeito externo incerto automaticamente |
-| Resultado verificado e registrado | Reaproveitar se entradas, política, plano e hash da saída continuam válidos |
-| Spec ou plano mudou | Bloquear retomada incompatível; executar replanejamento explícito |
-| Contrato compartilhado mudou | Invalidar consumidores transitivos e revalidar a integração |
-| Destino divergiu da base | Exigir resolução de conflito; não sobrescrever |
-| Aprovação aguardada | Manter espera até autoridade externa; worker não aprova |
-| Efeito não idempotente ficou incerto | Consultar provedor por chave de idempotência ou escalar para reconciliação |
+O migrador testa cadeia original com seus bytes exatos e valida hashes de fonte/saída. A fixture em `tests/fixtures/python-0.1-state.json` foi capturada executando o runtime Python real; a suíte atual não executa Python. Quando o arquivo fcntl antigo existe, o utilitário POSIX `flock` deve estar disponível. Falta do helper ou lock em uso bloqueia. Ele não é necessário em projetos novos.
 
-## Replanejamento
+A migração conserva o caminho do workspace; mudança de máquina/diretório exige reconciliação explícita. Não há relocação silenciosa. Bancos de versão desconhecida são rejeitados. Aprovações antigas não são reutilizadas porque o domínio de autoridade mudou.
 
-Uma correção mantém objetivo, escopo e verificadores e altera a implementação local. Replanejamento muda a divisão de trabalho ou suas premissas. Preserve histórico do plano anterior, registre motivo e valide novo DAG antes de agendar. Uma falha de especificação exige revisar o OpenSpec. Uma falha de ambiente exige corrigir ferramentas/acessos. Nenhuma delas é resolvida repetindo cegamente uma implementação.
+Para rollback, pare todos os controladores, mantenha cópia do estado0.2 e restaure o backup inteiro em instalação Python0.1 com os mesmos caminhos e fontes. Não combine um banco restaurado com WAL/SHM de outra execução. Não abra o mesmo banco simultaneamente com os dois runtimes.
 
-## Backups e limites
+## Replanejar ou invalidar
 
-Use backup consistente de SQLite, sem copiar um arquivo parcial enquanto há escrita. Mantenha o código da mesma versão ou aplique migração explícita. Não edite rows para converter FAILED em PASSED. O runtime local não oferece failover entre hosts, leases distribuídos ou replay de qualquer comando arbitrário. As garantias demonstradas são as dos testes de interrupção e retomada incluídos.
+Use `invalidate RUN UNIT --reason TEXT` para contrato/entrada alterada; consumidores transitivos são invalidados e os patches correspondentes sofrem rollback com CAS. Use `replan RUN --plan FILE --reason TEXT` para alterar divisão de trabalho ou estratégia. Unidades idênticas independentes são preservadas; alteração de spec/policy/verifier invalida conservadoramente todos os resultados relevantes.
+
+Pare workers antes dessas operações. Journals de integração de unidade são recuperáveis; uma interrupção durante replan/invalidation pode exigir reconciliação manual. Divergências bloqueiam em vez de sobrescrever arquivos. Backup de SQLite deve ser consistente; o migrador usa a API de backup nativa.

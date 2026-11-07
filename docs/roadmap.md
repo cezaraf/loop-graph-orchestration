@@ -11,7 +11,7 @@ A referência valida a composição OpenSpec + DAG + loops em instalação local
 | Próxima | CI obrigatório para exemplo Java/Angular | Build real, contrato HTTP e teste de UI no mesmo commit integrado |
 | Depois | OpenTelemetry e exportação OTLP | Spans correlacionados, tempos reais e ausência de segredos em atributos |
 | Depois | Oracle assistido para novos projetos | Propostas revisáveis, cobertura de cenários e bloqueio quando não existe verificador |
-| Depois | Migrações de schema/store | Compatibilidade e rollback testados de versões anteriores reais |
+| Depois | Migrações futuras de schema/store |0.1→0.2 já tem backup/validação; novas versões exigem seus próprios testes e rollback |
 | Depois | Plugin de executor durável | Demonstração de necessidade multi-host; comparação entre Temporal, LangGraph e store próprio |
 | Depois | Catálogo de aprendizado com regressões | Contradição, aplicabilidade, generalização, revogação e promoção auditada |
 

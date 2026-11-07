@@ -1,25 +1,17 @@
-# Cobertura exigida
+# Suíte TypeScript de compatibilidade e regressão
 
-Execute `pytest -q` com OpenSpec1.16.1 disponível em LGO_OPENSPEC. Sem a CLI oficial alguns testes específicos são SKIP; não converta esse resultado em PASS da integração. A entrega registrou execução sem skips.
+`npm ci --ignore-scripts && npm test` compila o runtime e executa `node --test tests/*.test.ts`. `npm run typecheck` verifica também os tipos dos testes. Não há pytest ou Python no procedimento. OpenSpec1.16.1 é instalado como devDependency; os testes de integração falham se a CLI faltar, sem converter SKIP em PASS.
 
-| Requisito de teste da missão | Cobertura |
+| Cenários preservados/ampliados | Arquivo |
 | --- | --- |
-| 1/2/24 leitura, validação e schemas OpenSpec | test_openspec.py: CLI real, ADDED/MODIFIED/REMOVED/RENAMED, versão/schema desconhecidos |
-| 3/4 rastreamento e grafo válido | test_engine.py: source_traceability, planner_derives_edges |
-| 5 ciclos | graph_rejects_bad_edges_cycles_and_duplicates |
-| 6/7 dependências e paralelismo | real_parallel_dispatch_dependency_and_resource_lock |
-| 8 conflitos de escrita | missing_artifact_dependency_and_conflict_rejected; merge_journal |
-| 9/10 falha e correção localizada | correction_local_preserves_other_units_and_feedback; external_oracles_fail |
-| 11 tentativas | attempt_limit_and_no_progress_differ |
-| 12/13 preservar e invalidar | pause_resume_invalidates_only_transitive_consumers |
-| 14 replanejamento | replan_failed_node_preserves_independent_success; adversarial replan spec/policy |
-| 15 recuperação | real_process_kill_and_resume_preserves_approved_unit |
-| 16 efeitos não idempotentes | adversarial interrupted_nonidempotent_adapter_is_not_called_again; journal idempotente |
-| 17/18 gates e aprovações falsas | test_adversarial.py, política high-risk, signed_delivery |
-| 19 aprendizado validado | learning_needs_validated_runs_authority_and_regressions |
-| 20/21 adapters e SDKs | test_adapters.py (processo/HTTP reais de fixture), test_cli.py core dependencies |
-| 22 progresso OpenSpec | test_openspec.py sync + test_cli.py sync-progress sem delivery |
-| 23 bloquear archive | test_cli_real_openspec_plan_dryrun_and_archive_block |
-| 25 escopo e orçamento | test_adversarial.py: escapes, segredos, policy, budget, remaining_budget |
+|16 contratos, exemplos válidos/inválidos e versão desconhecida | `contracts.test.ts` |
+| Rastreabilidade, produtores, edges, ciclos, conflitos, recursos, paralelismo, loops, limites, no-progress, recovery/SIGKILL, merge, replan, learning e entrega | `engine.test.ts` |
+| Aprovação falsa, binding/expiração/ator, segredo, scope escape, binário, budgets, remote refs, YAML ambíguo, symlinks e preflight de invalidação | `security.test.ts` |
+| Processo/HTTP reais de fixture, stdout limitado, redirects, cancelamento e grupos de processos | `adapters.test.ts` |
+| CLI, bootstrap/dry-run, OpenSpec, sincronização e archive bloqueado | `cli.test.ts` |
+| CLI oficial, ADDED/MODIFIED/REMOVED/RENAMED, hashes e checkbox seguro | `openspec.test.ts` |
+| Checkpoint Python real, backup, retomada, fonte/histórico/saída adulterados e versão desconhecida | `migration.test.ts` |
 
-`test_contracts.py` valida schemas, exemplos positivos/negativos e mensagens capturadas do motor real. `scripts/eval.py` executa o corpus em `evals/cases.json`. Os testes Java do exemplo e os verificadores offline são distintos; os logs dizem qual foi executado.
+A fixture legada foi produzida pelo código Python0.1 publicado no commit949ce3b. Ela contém bytes originais dos eventos, manifest e arquivos do workspace. O teste remapeia apenas o caminho local do workspace antes de montar o banco legado, então exige preservação das tentativas de PASSED e retomada do consumidor. A fixture é estática: não chama Python em CI.
+
+`node scripts/eval.mjs` executa os oito casos determinísticos existentes. `node scripts/demo.mjs --output NOVO_DIRETORIO` exercita o exemplo real OpenSpec + Java policy + grafo concorrente. Spring/H2/MockMvc e Angular são verificações separadas identificadas no relatório. Tokens/chaves de aprovação de fixture não representam autorização humana real.

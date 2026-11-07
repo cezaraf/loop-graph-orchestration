@@ -1,0 +1,113 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @cezaraf/lgo@0.2.0 prepack
+> npm run build
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @cezaraf/lgo@0.2.0 build
+> tsc -p tsconfig.json
+
+npm notice
+npm notice 📦  @cezaraf/lgo@0.2.0
+npm notice Tarball Contents
+npm notice 1.1kB LICENSE
+npm notice 8.5kB README.md
+npm notice 1.3kB dist/adapters.d.ts
+npm notice 6.2kB dist/adapters.js
+npm notice 6.5kB dist/adapters.js.map
+npm notice 84B dist/cli.d.ts
+npm notice 16.7kB dist/cli.js
+npm notice 16.2kB dist/cli.js.map
+npm notice 268B dist/contracts.d.ts
+npm notice 1.9kB dist/contracts.js
+npm notice 2.4kB dist/contracts.js.map
+npm notice 1.9kB dist/engine.d.ts
+npm notice 32.3kB dist/engine.js
+npm notice 33.6kB dist/engine.js.map
+npm notice 965B dist/gates.d.ts
+npm notice 5.5kB dist/gates.js
+npm notice 5.3kB dist/gates.js.map
+npm notice 645B dist/graph.d.ts
+npm notice 6.7kB dist/graph.js
+npm notice 9.0kB dist/graph.js.map
+npm notice 496B dist/index.d.ts
+npm notice 521B dist/index.js
+npm notice 466B dist/index.js.map
+npm notice 658B dist/learning.d.ts
+npm notice 5.0kB dist/learning.js
+npm notice 4.9kB dist/learning.js.map
+npm notice 317B dist/merge.d.ts
+npm notice 2.2kB dist/merge.js
+npm notice 2.6kB dist/merge.js.map
+npm notice 336B dist/migration.d.ts
+npm notice 6.8kB dist/migration.js
+npm notice 6.3kB dist/migration.js.map
+npm notice 194B dist/observability.d.ts
+npm notice 4.1kB dist/observability.js
+npm notice 5.4kB dist/observability.js.map
+npm notice 1.2kB dist/openspec.d.ts
+npm notice 9.8kB dist/openspec.js
+npm notice 10.2kB dist/openspec.js.map
+npm notice 1.4kB dist/state.d.ts
+npm notice 7.9kB dist/state.js
+npm notice 7.4kB dist/state.js.map
+npm notice 8.1kB dist/types.d.ts
+npm notice 44B dist/types.js
+npm notice 102B dist/types.js.map
+npm notice 1.3kB dist/util.d.ts
+npm notice 6.4kB dist/util.js
+npm notice 7.9kB dist/util.js.map
+npm notice 455B dist/verification.d.ts
+npm notice 6.3kB dist/verification.js
+npm notice 5.3kB dist/verification.js.map
+npm notice 418B dist/workspace.d.ts
+npm notice 4.3kB dist/workspace.js
+npm notice 5.0kB dist/workspace.js.map
+npm notice 1.4kB package.json
+npm notice 4.9kB schemas/acceptance_criterion.schema.json
+npm notice 4.8kB schemas/agent_request.schema.json
+npm notice 1.2kB schemas/agent_result.schema.json
+npm notice 688B schemas/approval_request.schema.json
+npm notice 2.2kB schemas/correction_request.schema.json
+npm notice 460B schemas/examples/acceptance_criterion.json
+npm notice 1.7kB schemas/examples/agent_request.json
+npm notice 366B schemas/examples/agent_result.json
+npm notice 410B schemas/examples/approval_request.json
+npm notice 838B schemas/examples/correction_request.json
+npm notice 234B schemas/examples/execution_event.json
+npm notice 1.9kB schemas/examples/execution_graph.json
+npm notice 3.0kB schemas/examples/execution_manifest.json
+npm notice 390B schemas/examples/gate_decision.json
+npm notice 1.2kB schemas/examples/learning_candidate.json
+npm notice 310B schemas/examples/merge_result.json
+npm notice 496B schemas/examples/openspec_change_reference.json
+npm notice 806B schemas/examples/parsed_specification.json
+npm notice 384B schemas/examples/requirement.json
+npm notice 334B schemas/examples/verification_result.json
+npm notice 1.2kB schemas/examples/work_unit.json
+npm notice 2.4kB schemas/execution_event.schema.json
+npm notice 15.1kB schemas/execution_graph.schema.json
+npm notice 28.3kB schemas/execution_manifest.schema.json
+npm notice 1.6kB schemas/gate_decision.schema.json
+npm notice 2.5kB schemas/learning_candidate.schema.json
+npm notice 1.5kB schemas/merge_result.schema.json
+npm notice 794B schemas/openspec_change_reference.schema.json
+npm notice 4.0kB schemas/parsed_specification.schema.json
+npm notice 1.5kB schemas/requirement.schema.json
+npm notice 846B schemas/verification_result.schema.json
+npm notice 7.8kB schemas/work_unit.schema.json
+npm notice 321B templates/config.yaml
+npm notice 230B templates/policies.yaml
+npm notice 1.1kB templates/README.md
+npm notice Tarball Details
+npm notice name: @cezaraf/lgo
+npm notice version: 0.2.0
+npm notice filename: cezaraf-lgo-0.2.0.tgz
+npm notice package size: 72.0 kB
+npm notice unpacked size: 378.4 kB
+npm notice shasum: 9546674c5083b33eb86496b26844d620319d922a
+npm notice integrity: sha512-RQEXycY19tnU7[...]+8gDh9bxkNQ+A==
+npm notice total files: 89
+npm notice
+cezaraf-lgo-0.2.0.tgz

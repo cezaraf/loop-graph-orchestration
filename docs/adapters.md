@@ -1,38 +1,36 @@
-# Criar um adapter
+# Criar um AgentAdapter
 
-Um adapter conecta uma unidade ao executor de agente. O contrato JSON é a fronteira portátil; fornecedor, modelo e linguagem do projeto não pertencem ao scheduler. Consulte `lgo/adapters.py` e `schemas/` para as assinaturas exatas da versão instalada.
+A API é exportada por `src/index.ts`/pacote npm. Agentes recebem dados e devolvem patches; o resultado externo é validado por JSON Schema e verificadores do controlador.
 
-## Entrada e saída
+```typescript
+import type {AgentAdapter,AgentRequest,AgentResult} from '@cezaraf/lgo';
 
-O request contém identidade da execução/unidade, objetivo, contexto autorizado, requisitos, escopo, orçamento, timeout e feedback da última reprovação. O resultado devolve alterações estruturadas, metadados de uso quando disponíveis e descrição da tentativa. O controlador decide se o patch é permitido e verifica seu efeito.
+export class MyAdapter implements AgentAdapter {
+  readonly idempotent = false;
+  async execute(request: AgentRequest, signal?: AbortSignal): Promise<AgentResult> {
+    // Chame seu harness usando request.idempotency_key e respeitando signal.
+    // Nunca transforme texto do projeto em comandos/permissões do host.
+    return {
+      schema_version: '1.0',
+      files: {'src/example.txt': 'proposed content'},
+      usage: {cost: 0, tokens: 0},
+      summary: 'Explain the proposed patch',
+      idempotency_key: request.idempotency_key,
+    };
+  }
+}
+```
 
-O adapter deve devolver arquivos/patches; não deve marcar a unidade como PASSED, escolher o gate, atualizar políticas ou gravar checkboxes. Resultados inválidos falham na fronteira do contrato. Evite transportar segredos no request, resultado ou eventos.
+`idempotent=true` só é apropriado quando repetir a chamada é seguro para os efeitos reais do adapter. O mock produz apenas patches, portanto é idempotente. Os adapters genéricos processo/HTTP são conservadores e não idempotentes. Implemente reconciliação do provedor antes de ampliar essa garantia.
 
-## Implementação
+O request contém escopo gravável, requisitos, entradas somente leitura, orçamento e correção anterior. O worker não recebe chave de autoridade, política mutável ou caminho do workspace. Um patch fora do escopo, que altere controles, ultrapasse orçamento reportado ou viole uma fixture protegida é bloqueado.
 
-1. Implemente a interface `AgentAdapter` seguindo o adapter mock incluído.
-2. Traduza somente o contexto permitido para o executor.
-3. Propague timeout e cancelamento. Termine grupo de processos se o executor cria filhos.
-4. Valide a resposta antes de produzir `AgentResult`.
-5. Registre tokens/custo somente quando fornecidos ou calculáveis; informe ausente quando desconhecido.
-6. Passe testes de contrato, timeout, escopo, resultado malformado, cancelamento e correção com feedback.
+| Adapter | Configuração |
+| --- | --- |
+| mock | `agent.adapter: mock`, tentativas de fixture sem credenciais |
+| process | `allow_process_agents: true` e `agent_commands[profile]` como argv sem shell |
+| http | `agent_endpoints[profile]` em `allowed_agent_endpoints`; redirect é rejeitado |
 
-Não execute comandos devolvidos pelo LLM. O operador configura previamente os comandos verificadores. O adapter é código confiável; uma implementação maliciosa no mesmo processo pode burlar qualquer checagem em Python.
+Processos recebem request JSON por stdin e emitem AgentResult JSON por stdout. A saída é limitada, timeouts/cancelamento encerram o grupo de processos ordinários no Linux. Ambiente herdado contém somente PATH/LANG. Isso não é sandbox de SO: um processo confiável ainda possui permissões do usuário do host.
 
-## Mecanismos de conexão
-
-| Executor | Integração possível | O que ainda precisa ser garantido |
-| --- | --- | --- |
-| Mock | Respostas/patches determinísticos por tentativa | Simula uso do agente; não mede qualidade de LLM |
-| Processo CLI | JSON stdin/stdout ou protocolo do harness, argumentos explícitos e sem shell | Sandboxing, cancelamento de filhos, saída limitada e autenticação externa |
-| HTTP de agente | Serviço retorna patch com contrato estruturado | TLS/autenticação, host permitido, limite de resposta, timeout e idempotência |
-| API OpenAI-compatible | Modelo produz conteúdo estruturado | Tool runtime, edição e sessão devem ser implementados; endpoint de chat não equivale a harness |
-| ACP | Sessões e turnos pelo protocolo negociado | Capacidades, permissões, filesystem, cancelamento e versão suportada |
-| Claude Code, Codex, OpenCode | Wrapper CLI ou ACP quando o executor suportar | Não pressupor nomes de flags ou compatibilidade sem teste da versão específica |
-| MCP | Broker de ferramentas/contexto para o executor | MCP não é scheduler; servidor e ferramentas precisam de autorização própria |
-
-Essas rotas documentam extensão. A lista de adapters realmente implementados e exercitados consta do README/relatório. Uma rota não verificada deve continuar identificada como pendente.
-
-## Teste de conformidade
-
-Use uma unidade com arquivo exclusivo, uma segunda tentativa que recebe `CorrectionRequest`, um patch que tenta `../`, uma resposta acima do orçamento e um cancelamento. Comprove que o adapter não pode fabricar `VerificationResult` aceito pelo controlador. Para efeitos externos não idempotentes, reproduza interrupção após efeito e antes de resposta; a recuperação deve reconciliar ou bloquear, sem duplicar o efeito.
+HTTP usa AbortSignal, timeout e limite de corpo. Um endpoint OpenAI-compatible de modelo não implementa automaticamente tools, edição de arquivos ou sessões; adapte um harness real ao contrato. ACP/MCP e wrappers específicos estão pendentes. Custos/tokens são reportados pelo adapter, não prova de cobrança. Uma avaliação LLM não substitui oracles determinísticos.
